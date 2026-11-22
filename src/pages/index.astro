@@ -3,8 +3,21 @@ import Base from '../layouts/Base.astro';
 import TrackList from '../components/TrackList.vue';
 import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
-import PlaylistEmbed from '../components/PlaylistEmbed.astro';
+import SpotifyTracks from '../components/SpotifyTracks.vue';
+import { songId } from '../data/discography';
 import { tracks, marquee, business as b } from '../data/site';
+
+const featured = [
+  { title: 'Pressure', artist: 'Paramore', note: 'Platinum · bass', id: songId('Pressure', 'Paramore') },
+  { title: 'In Time', artist: 'Grey Daze', note: 'Chester Bennington', id: songId('In Time', 'Grey Daze') },
+  { title: 'Be Still', artist: 'StorySide:B', note: 'BMI Top 5 · co-writer', id: songId('Be Still', 'StorySide:B') },
+  { title: 'TRIALS', artist: 'STARSET', id: songId('TRIALS', 'STARSET') },
+  { title: 'Tell Me How To Say Goodbye', artist: 'RED', id: songId('Tell Me How To Say Goodbye', 'RED') },
+  { title: 'Alabama Rhap Corollary', artist: 'Larry Coryell', id: songId('Alabama Rhap Corollary', 'Larry Coryell') },
+  { title: 'Kamikaze', artist: 'Manafest', id: songId('Kamikaze', 'Manafest') },
+  { title: 'Addicted To My Pain', artist: 'Seventh Day Slumber', id: songId('Addicted To My Pain', 'Seventh Day Slumber') },
+  { title: 'I Am a Pilgrim', artist: 'Lucio Rubino', note: 'Lu’s solo work', id: songId('I Am a Pilgrim', 'Lucio Rubino') },
+];
 
 const faq = [
   { q: 'What does full-song production include?', a: 'Everything it takes to turn a song idea into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), vocal coaching, editing, mixing and mastering. You can come in with a voice memo or a finished demo.' },
@@ -147,12 +160,12 @@ const schema = [{
       <TrackList client:visible tracks={tracks.slice(0, 6)} />
       <div class="grid split sp-head">
         <div>
-          <p class="eyebrow">95 songs · one set of fingerprints</p>
-          <h3 class="sp-title">Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and dozens of artists on the rise.</em></h3>
-          <p>Every song Lu has had a hand in as a writer, player or producer, all in one playlist. Hit shuffle and hear the range: pop-punk, arena rock, jazz fusion and heart-on-sleeve songwriting.</p>
-          <a href="/credits/#songs" class="btn btn--ghost">See every credit →</a>
+          <p class="eyebrow">Hear the credits · tap to play</p>
+          <h3 class="sp-title">Platinum Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and more.</em></h3>
+          <p>The headline songs Lu has had a hand in as a writer, player or producer, right here on Spotify. The full playlist has 95.</p>
+          <a href="/credits/#songs" class="btn btn--ghost">All 95 songs →</a>
         </div>
-        <PlaylistEmbed height={380} />
+        <SpotifyTracks client:visible tracks={featured} />
       </div>
     </div>
   </section>
