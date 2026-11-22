@@ -189,7 +189,7 @@ const schema = [{
   <!-- LUCIO -->
   <section class="section">
     <div class="wrap grid split">
-      <div class="photo">Photo: Lu at the SSL (to shoot)</div>
+      <img class="img" src="/images/lu-console.webp" alt="Lucio Rubino at the console in The Fish Tank control room" width="800" height="1000" loading="lazy" decoding="async" />
       <div>
         <p class="eyebrow">The producer</p>
         <h2>Lucio Rubino, <em>three decades in.</em></h2>
@@ -202,7 +202,7 @@ const schema = [{
 
   <!-- SANCTUARY -->
   <section class="sanct">
-    <div class="photo photo--wide sanct__img">The deck · St. Augustine marsh at golden hour (photo coming)</div>
+    <div class="sanct__img" role="img" aria-label="The Fish Tank control room, with guitars lining the walls" style="background-image: linear-gradient(180deg, rgba(14,12,10,.15), rgba(14,12,10,.9) 82%), url(/images/control-room-wide.webp)"></div>
     <div class="wrap sanct__copy">
       <p class="eyebrow">The studio</p>
       <h2>An elevated room <em>above the marsh.</em></h2>
@@ -302,12 +302,7 @@ const schema = [{
   .sp-title em { color: var(--amber); }
   .loc h3 { font-size: 1.7rem; }
   .sanct { position: relative; border-block: 1px solid var(--line); }
-  .sanct__img { aspect-ratio: auto; min-height: 560px; border: 0; border-radius: 0; width: 100%;
-    background:
-      linear-gradient(180deg, rgba(14,12,10,.2), rgba(14,12,10,.92) 85%),
-      radial-gradient(ellipse 70% 45% at 70% 35%, rgba(240,164,58,.35), transparent 70%),
-      linear-gradient(180deg, #3a2a1a 0%, #1f2a26 55%, #10201c 100%);
-    align-items: flex-start; }
+  .sanct__img { min-height: 600px; width: 100%; background-size: cover; background-position: center 40%; }
   .sanct__copy { position: absolute; left: 0; right: 0; bottom: clamp(2.5rem, 6vw, 4.5rem); }
   .sanct__copy h2 { max-width: 18ch; }
   @media (max-width: 700px) { .sanct__img { min-height: 640px; } }

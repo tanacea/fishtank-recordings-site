@@ -33,7 +33,8 @@ import { business as b } from '../data/site';
         <p><a href="/credits/">Full credits →</a></p>
       </div>
       <aside class="side">
-        <div class="photo">Portrait: Lucio Rubino (to shoot)</div>
+        <img class="img" src="/images/lu-upright-bass.webp" alt="Lucio Rubino playing upright bass on stage" width="800" height="1000" loading="lazy" decoding="async" />
+        <figure class="plaque"><img class="img" src="/images/paramore-plaque.webp" alt="Framed RIAA plaque for Paramore’s All We Know Is Falling at The Fish Tank" width="800" height="1000" loading="lazy" decoding="async" /><figcaption>Paramore’s <em>All We Know Is Falling</em> plaque on the studio wall.</figcaption></figure>
         <ul class="facts">
           <li><span>Plays</span>Vocals · guitars · bass · keys · drums</li>
           <li><span>Studio craft</span>Production · programming · mixing</li>
@@ -59,6 +60,9 @@ import { business as b } from '../data/site';
 
 <style>
   .side { display: grid; gap: 1.5rem; align-content: start; position: sticky; top: 100px; }
+  .plaque { margin: 0; }
+  .plaque .img { aspect-ratio: 4/5; }
+  .plaque figcaption { font-size: .82rem; color: var(--muted); margin-top: .5rem; }
   .facts { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
   .facts li { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); color: var(--cream); font-size: .95rem; }
   .facts span { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
