@@ -88,7 +88,7 @@ export const credits: Credit[] = [
     source: 'Deezer writer credits',
   },
   {
-    artist: 'Grey Daze (Chester Bennington)',
+    artist: 'Grey Daze (Chester Bennington of Linkin Park)',
     work: 'Amends: "In Time"',
     year: '2020',
     label: 'Loma Vista Recordings',
