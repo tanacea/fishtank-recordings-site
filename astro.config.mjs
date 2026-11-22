@@ -21,8 +21,8 @@ const redirects = {
 export default defineConfig({
   site: 'https://thefishtankrecordings.com',
   base: isDev ? '/fishtank-recordings-site' : undefined,
-  trailingSlash: 'never',
-  build: { format: 'file' },
+  trailingSlash: 'ignore',
+  build: { format: 'directory' },
   integrations: [vue(), ...(isDev ? [] : [sitemap()])],
   redirects: isDev ? {} : redirects,
 });
