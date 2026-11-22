@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import TrackList from '../components/TrackList.vue';
+import Faq from '../components/Faq.astro';
+import Testimonials from '../components/Testimonials.astro';
+import { tracks, business as b } from '../data/site';
+
+const faq = [
+  { q: 'Can I come in with just a voice memo?', a: 'Yes. Plenty of Fish Tank records started as a phone recording. Lu helps shape structure, melody, lyric and arrangement before anything is tracked.' },
+  { q: 'Who plays the instruments?', a: 'Lucio plays bass, electric and acoustic guitar and more, and the studio is stocked with basses, guitars, a Dobro, banjo, upright bass and a Medicine Man drum kit. Bring your own band if you have one; it’s your call.' },
+  { q: 'Do you help with songwriting?', a: 'Yes. Lu is a co-writer on RED’s Rated R and co-wrote StorySide:B’s BMI-recognized “Be Still.” Co-writing is part of full-song production whenever the song calls for it.' },
+  { q: 'What do I get at the end?', a: 'Mixed and mastered tracks ready for streaming and radio. Ask about instrumentals and alternate versions for your project.' },
+];
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Music production',
+  name: 'Full-Song Music Production',
+  provider: { '@id': `${b.url}/#studio` },
+  areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'Florida', 'Nashville, TN', 'United States'],
+  description: 'Complete song production: songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino.',
+}];
+---
+<Base
+  title="Full-Song Music Production in St. Augustine, FL | The Fish Tank"
+  description="Turn a demo into a finished record. Songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino (Paramore, RED, Grey Daze)."
+  schema={schema}
+  crumbs={[{ name: 'Song Production', path: '/song-production' }]}
+>
+  <PageHero eyebrow="Our work · Song production" title="From a voice memo <em>to a record that hits.</em>"
+    lede="This is what The Fish Tank was built for. Lu takes a song the whole distance: the writing and arrangement, the players, the sound, the mix and the master, with one producer and one vision. He won’t settle until the song sounds as big as it feels in your head.">
+    <div style="margin-top:2rem"><a href="/contact" class="btn">Talk about your songs →</a></div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="prose">
+        <h2>Why one producer <em>beats a dozen hours.</em></h2>
+        <p>Booking studio time gets you an engineer and a clock. Full-song production gets you a collaborator who has <strong>played on a gold record</strong>, <strong>written with a Grammy-nominated band</strong> and <strong>fronted a label act</strong>, and who fights for your song like it’s his own.</p>
+        <p>Lu has made pop-punk, arena rock, heart-on-sleeve songwriter records, Christian radio singles and jazz fusion. He’s heard what separates a good song from the one that gets stuck in a million heads. He knows when a chorus needs to explode, when a key needs to move and when the bravest move is to strip everything away.</p>
+        <h3>What's included</h3>
+        <ul>
+          <li>Song consultation, structure and co-writing</li>
+          <li>Pre-production and arrangement</li>
+          <li>Vocal production and coaching</li>
+          <li>Bass, guitars and other instruments performed by Lu</li>
+          <li>Symphonic and string arrangements when the song wants them</li>
+          <li>Tracking through the SSL Origin and FLEA U47</li>
+          <li>Editing, mixing and mastering</li>
+        </ul>
+      </div>
+      <div class="photo">Photo: tracking in the live room (to shoot)</div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Listen</p>
+      <h2>Pressed play <em>in the tank.</em></h2>
+      <TrackList client:visible tracks={tracks} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <Testimonials limit={2} />
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap"><Faq items={faq} title="Production questions" /></div>
+  </section>
+</Base>

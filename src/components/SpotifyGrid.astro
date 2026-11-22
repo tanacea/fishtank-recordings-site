@@ -1,0 +1,28 @@
+---
+import { spotify } from '../data/site';
+---
+<div class="sp">
+  {spotify.map((s) => (
+    <figure class="sp__item">
+      <figcaption><strong>{s.label}</strong><span>{s.sub}</span></figcaption>
+      <iframe
+        title={`${s.label} on Spotify`}
+        src={`https://open.spotify.com/embed/${s.type}/${s.id}?utm_source=generator&theme=0`}
+        width="100%" height={s.type === 'track' ? 152 : 352}
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+      <a href={`https://open.spotify.com/${s.type}/${s.id}`} target="_blank" rel="noopener">Open in Spotify ↗</a>
+    </figure>
+  ))}
+</div>
+
+<style>
+  .sp { display: grid; gap: 1.5rem; }
+  @media (min-width: 900px) { .sp { grid-template-columns: repeat(3, 1fr); align-items: start; } }
+  .sp__item { margin: 0; display: grid; gap: .8rem; }
+  figcaption { display: flex; flex-direction: column; }
+  figcaption strong { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; }
+  figcaption span { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  iframe { border: 0; border-radius: 12px; background: var(--ink-3); }
+  a { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+</style>

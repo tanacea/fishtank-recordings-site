@@ -1,0 +1,248 @@
+---
+import Base from '../layouts/Base.astro';
+import TrackList from '../components/TrackList.vue';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import PlaylistEmbed from '../components/PlaylistEmbed.astro';
+import { tracks, marquee, business as b } from '../data/site';
+
+const faq = [
+  { q: 'What does full-song production include?', a: 'Everything it takes to turn a song idea into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), vocal coaching, editing, mixing and mastering. You can come in with a voice memo or a finished demo.' },
+  { q: 'Do I need a band to record a full production?', a: 'No. Lucio is a multi-instrumentalist who plays bass, guitar and more on productions. He played bass on Paramore’s gold-certified debut, so many artists come in with just a voice and a guitar and leave with a full-band record.' },
+  { q: 'Where is the studio?', a: `The Fish Tank Recordings is at ${b.street} in St. Augustine, Florida: an elevated studio down a private drive, overlooking the marsh, about 45 minutes from Jacksonville. Sessions are by appointment.` },
+  { q: 'How do I get a quote?', a: 'Send an inquiry with a link to your demo, how many songs you have and your timeline. Lu will reply personally with a plan and price for your project.' },
+];
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: b.name,
+  url: b.url,
+}];
+---
+<Base
+  title="Recording Studio & Music Producer in St. Augustine, FL | The Fish Tank"  description="Full-song production, recording, mixing and mastering in St. Augustine, FL. Producer Lucio Rubino: bass on Paramore’s gold debut, co-writer for RED. Since 2002."
+  schema={schema}
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Recording studio · St. Augustine, FL · Est. {b.founded}</p>
+        <h1>The St. Augustine recording studio where <em>songs become records.</em></h1>
+        <p class="lede">Walk in with a voice memo. Walk out with a record that hits like the ones you grew up worshipping. Producer <strong>Lucio Rubino</strong> has played bass on a gold Paramore album and written with RED, and he shapes every note from the first chord to the final master in a tube-warm sanctuary overlooking the St. Augustine marsh.</p>
+        <div class="hero__ctas">
+          <a href="/contact" class="btn">Start your record →</a>
+          <a href="#listen" class="btn btn--ghost">▶ Hear the proof</a>
+        </div>
+      </div>
+      <div class="vu" aria-hidden="true">
+        <div class="vu__face">
+          <span class="vu__label">VU</span>
+          <div class="vu__scale"><i>-20</i><i>-10</i><i>-5</i><i>0</i><i class="hot">+3</i></div>
+          <div class="vu__needle"></div>
+          <span class="vu__brand">THE FISH TANK · CH 1</span>
+        </div>
+        <div class="vu__face">
+          <span class="vu__label">VU</span>
+          <div class="vu__scale"><i>-20</i><i>-10</i><i>-5</i><i>0</i><i class="hot">+3</i></div>
+          <div class="vu__needle vu__needle--b"></div>
+          <span class="vu__brand">THE FISH TANK · CH 2</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee" aria-label="Artists Lucio Rubino has worked with">
+      <div class="marquee__track">
+        {[...marquee, ...marquee].map((m, i) => <span aria-hidden={i >= marquee.length ? 'true' : undefined}>{m}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The receipts</p>
+      <h2>Credits that <em>speak for themselves.</em></h2>
+      <div class="grid grid-2 proof">
+        <a class="card" href="/credits"><span class="num">PARAMORE · 2005</span><h3>The low end on a <em>gold record.</em></h3><p>Lu laid down the bass on most of <em>All We Know Is Falling</em>, the debut that launched Paramore toward arenas around the world. The RIAA later certified it Gold.</p></a>
+        <a class="card" href="/credits"><span class="num">RED · 2023</span><h3>Writing with <em>heavyweights.</em></h3><p>He co-wrote “Still Bleeding” (and played its bass) and “Your Devil Is a Ghost” for <em>Rated R</em> by RED, the Grammy-nominated, Nashville-based hard-rock powerhouse.</p></a>
+        <a class="card" href="/credits"><span class="num">GREY DAZE · 2020</span><h3>Producing for <em>a legend’s voice.</em></h3><p>Lu produced “In Time” for <em>Amends</em>, a record built around Chester Bennington’s earliest vocals. It climbed to #9 on Billboard’s Top Rock Albums chart.</p></a>
+        <a class="card" href="/credits"><span class="num">STORYSIDE:B · 2008</span><h3>A song radio <em>couldn’t stop playing.</em></h3><p>As frontman of Gotee Records’ StorySide:B, Lu co-wrote “Be Still,” which BMI named one of the five most-played songs on Christian radio in 2008.</p></a>
+      </div>
+      <p class="proof__more"><a href="/credits">See the full credits list →</a></p>
+    </div>
+  </section>
+
+  <!-- PRODUCTION PROCESS -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="grid split">
+        <div>
+          <p class="eyebrow">Full-song production</p>
+          <h2>One producer. One vision. <em>First chord to final master.</em></h2>
+          <p class="lede">Most studios rent you a room and a clock. The Fish Tank makes records. Lu writes with you, arranges, plays, engineers, mixes and masters, so your song never gets passed down an assembly line or loses the spark that made it yours.</p>
+          <a href="/song-production" class="btn btn--ghost">How production works →</a>
+        </div>
+        <ol class="steps">
+          <li><span>01</span><div><h3>Find the heartbeat</h3><p>We pull your song apart and find what makes it matter: the structure, key, tempo and lyric, and the records it has to stand beside.</p></div></li>
+          <li><span>02</span><div><h3>Draw the map</h3><p>Every part is planned before the red light ever glows. Arrangement, instrumentation and vocal approach are locked in, with no wasted takes and no guesswork.</p></div></li>
+          <li><span>03</span><div><h3>Roll tape</h3><p>Vocals, guitars, bass and drums pour through an SSL Origin, a FLEA U47 and a rack of vintage-voiced outboard that adds the warmth you can feel in your chest.</p></div></li>
+          <li><span>04</span><div><h3>Make it hit</h3><p>Mixed wide, deep and punchy, then mastered to stand toe-to-toe with anything on streaming and radio.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section class="section" id="listen">
+    <div class="wrap">
+      <div class="listen__head">
+        <div>
+          <p class="eyebrow">Turn it up</p>
+          <h2>Straight out of <em>the tank.</em></h2>
+        </div>
+        <a href={b.social.soundcloud} target="_blank" rel="noopener" class="btn btn--ghost">More on SoundCloud ↗</a>
+      </div>
+      <TrackList client:visible tracks={tracks.slice(0, 6)} />
+      <div class="grid split sp-head">
+        <div>
+          <p class="eyebrow">95 songs · one set of fingerprints</p>
+          <h3 class="sp-title">Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and dozens of artists on the rise.</em></h3>
+          <p>Every song Lu has had a hand in as a writer, player or producer, all in one playlist. Hit shuffle and hear the range: pop-punk, arena rock, jazz fusion and heart-on-sleeve songwriting.</p>
+          <a href="/credits#songs" class="btn btn--ghost">See every credit →</a>
+        </div>
+        <PlaylistEmbed height={380} />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2>Everything a record needs, <em>under one roof.</em></h2>
+      <div class="grid grid-3 svc">
+        <a class="card" href="/song-production"><span class="num">01</span><h3>Song Production</h3><p>The full ride. Your song is written, arranged, performed and produced until it sounds like it was always meant to exist.</p></a>
+        <a class="card" href="/services#recording"><span class="num">02</span><h3>Recording</h3><p>Up to 96 tracks of high-definition detail through an SSL Origin, so every breath, string squeak and cymbal shimmer is caught.</p></a>
+        <a class="card" href="/services#mixing"><span class="num">03</span><h3>Mixing & Mastering</h3><p>Mixes where every part has room to breathe, and masters that are full, warm and loud enough to stand next to anything.</p></a>
+        <a class="card" href="/film-tv-scoring"><span class="num">04</span><h3>Film & TV Scoring</h3><p>Original score composed to picture, music that tells the audience how to feel before they know why.</p></a>
+        <a class="card" href="/commercial-music"><span class="num">05</span><h3>Commercial Music</h3><p>Custom music for TV and radio spots that makes a brand impossible to forget.</p></a>
+        <a class="card" href="/services#arrangement"><span class="num">06</span><h3>Arrangement & Coaching</h3><p>Sweeping symphonic arrangements, plus vocal and instrument coaching that pulls out your best take.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LUCIO -->
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="photo">Photo: Lu at the SSL (to shoot)</div>
+      <div>
+        <p class="eyebrow">The producer</p>
+        <h2>Lucio Rubino: <em>singer, writer, player, producer.</em></h2>
+        <p>Lu has lived every side of this business. He’s held down the bass on tour for A Flock of Seagulls, signed with EMI, fronted StorySide:B on Gotee Records and played on Paramore’s gold debut. He’s toured Europe and written with RED, and produced for jazz-fusion legend Larry Coryell. Since {b.founded}, he’s poured all of it into the records made at The Fish Tank.</p>
+        <p>That’s who’s in the chair when your red light glows: a player’s feel, a songwriter’s instincts and a producer who knows what it takes for a song to survive the big leagues. His credits run from St. Augustine straight to Nashville.</p>
+        <a href="/lucio-rubino" class="btn btn--ghost">Read Lu's story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SANCTUARY -->
+  <section class="sanct">
+    <div class="photo photo--wide sanct__img">The deck · St. Augustine marsh at golden hour (photo coming)</div>
+    <div class="wrap sanct__copy">
+      <p class="eyebrow">The sanctuary</p>
+      <h2>Not a box in a warehouse. <em>A view of the marsh.</em></h2>
+      <p class="lede">Down a private drive, up above the St. Augustine marsh, The Fish Tank is a place where the outside world falls away. Step out onto the massive deck between takes, let the song breathe, then walk back in and capture the take of your life.</p>
+      <a href="/studio" class="btn btn--ghost">Tour the studio →</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Word from the room</p>
+      <h2>Don’t take <em>our word for it.</em></h2>
+      <Testimonials limit={2} />
+      <p class="proof__more"><a href="/testimonials">More testimonials →</a></p>
+    </div>
+  </section>
+
+  <!-- LOCATION + FAQ -->
+  <section class="section">
+    <div class="wrap grid split">
+      <Faq items={faq} />
+      <div class="loc card">
+        <p class="eyebrow">Find the tank</p>
+        <h3>{b.street}<br />{b.city}, {b.region} {b.postal}</h3>
+        <p>Down a private drive and up above the St. Augustine marsh, with a massive deck, a view that goes on for miles and the glow of tubes inside. Sessions by appointment.</p>
+        <p><a href={`tel:${b.phoneE164}`}>{b.phone}</a><br /><a href={`mailto:${b.email}`}>{b.email}</a></p>
+        <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=24+Althea+Street+St+Augustine+FL+32084">Open in Maps ↗</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(3.5rem, 8vw, 6.5rem); position: relative; overflow: hidden;
+    background:
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(240,164,58,.16), transparent 70%),
+      radial-gradient(ellipse 40% 50% at 10% 100%, rgba(111,179,168,.10), transparent 70%); }
+  .hero__grid { display: grid; gap: 3rem; align-items: center; padding-bottom: 4.5rem; }
+  @media (min-width: 960px) { .hero__grid { grid-template-columns: 1.35fr .65fr; } }
+  .hero h1 { max-width: 15ch; }
+  .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+  /* VU meters */
+  .vu { display: grid; gap: 1.1rem; }
+  .vu__face {
+    position: relative; height: 150px; border-radius: 6px; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 120%, #f6d9a0, #e9b867 55%, #b9822f);
+    box-shadow: inset 0 0 0 6px #1b1611, inset 0 0 30px rgba(0,0,0,.45), 0 0 50px rgba(240,164,58,.18);
+  }
+  .vu__label { position: absolute; top: 14px; left: 18px; font-family: var(--font-display); font-style: italic; color: #2a1d0e; font-size: 1.3rem; }
+  .vu__brand { position: absolute; bottom: 12px; width: 100%; text-align: center; font-family: var(--font-mono); font-size: .55rem; letter-spacing: .25em; color: #3a2a15; }
+  .vu__scale { position: absolute; top: 40px; left: 12%; right: 12%; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .62rem; color: #2a1d0e; }
+  .vu__scale .hot { color: #a32c18; }
+  .vu__needle { position: absolute; bottom: -20px; left: 50%; width: 2px; height: 140px; background: #1a120a; transform-origin: bottom center; animation: needle 2.6s ease-in-out infinite; }
+  .vu__needle--b { animation-duration: 3.1s; animation-delay: -.8s; }
+  @keyframes needle {
+    0% { transform: rotate(-42deg); } 18% { transform: rotate(8deg); } 30% { transform: rotate(-12deg); }
+    48% { transform: rotate(22deg); } 62% { transform: rotate(-4deg); } 80% { transform: rotate(14deg); } 100% { transform: rotate(-42deg); }
+  }
+  @media (max-width: 959px) { .vu { grid-template-columns: 1fr 1fr; } .vu__face { height: 120px; } }
+
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; background: var(--ink-2); }
+  .marquee__track { display: flex; gap: 4rem; padding: 1.3rem 0; width: max-content; animation: scroll 40s linear infinite; }
+  .marquee span { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--cream-dim); white-space: nowrap; }
+  .marquee span::after { content: '✦'; color: var(--amber); font-style: normal; font-size: .9rem; margin-left: 4rem; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  .proof .card, .svc .card { color: inherit; }
+  .proof .card:hover, .svc .card:hover { transform: translateY(-3px); border-color: var(--amber-deep); }
+  .proof h3 em { color: var(--amber); }
+  .proof__more { margin-top: 2rem; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; }
+  .steps li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+  .steps li:last-child { border-bottom: 0; }
+  .steps span { font-family: var(--font-mono); color: var(--amber); font-size: .85rem; padding-top: .35rem; }
+  .steps h3 { margin-bottom: .3rem; }
+  .steps p { margin: 0; }
+
+  .listen__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .svc { margin-top: 2.5rem; }
+  .sp-head { margin-top: 4.5rem; align-items: start; }
+  .sp-title { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+  .sp-title em { color: var(--amber); }
+  .loc h3 { font-size: 1.7rem; }
+  .sanct { position: relative; border-block: 1px solid var(--line); }
+  .sanct__img { aspect-ratio: auto; min-height: 560px; border: 0; border-radius: 0; width: 100%;
+    background:
+      linear-gradient(180deg, rgba(14,12,10,.2), rgba(14,12,10,.92) 85%),
+      radial-gradient(ellipse 70% 45% at 70% 35%, rgba(240,164,58,.35), transparent 70%),
+      linear-gradient(180deg, #3a2a1a 0%, #1f2a26 55%, #10201c 100%);
+    align-items: flex-start; }
+  .sanct__copy { position: absolute; left: 0; right: 0; bottom: clamp(2.5rem, 6vw, 4.5rem); }
+  .sanct__copy h2 { max-width: 18ch; }
+  @media (max-width: 700px) { .sanct__img { min-height: 640px; } }
+</style>

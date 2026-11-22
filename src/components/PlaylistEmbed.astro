@@ -1,0 +1,20 @@
+---
+import { playlistId, playlistUrl, trackCount } from '../data/discography';
+interface Props { height?: number }
+const { height = 480 } = Astro.props;
+---
+<div class="pl">
+  <iframe
+    title="Songs Lucio Rubino had a hand in (Spotify playlist)"
+    src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`}
+    width="100%" height={height}
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"></iframe>
+  <a href={playlistUrl} target="_blank" rel="noopener">Open all {trackCount} songs in Spotify ↗</a>
+</div>
+
+<style>
+  .pl { display: grid; gap: .8rem; }
+  iframe { border: 0; border-radius: 12px; background: var(--ink-3); }
+  a { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+</style>

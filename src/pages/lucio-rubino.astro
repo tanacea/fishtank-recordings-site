@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import SpotifyGrid from '../components/SpotifyGrid.astro';
+import PlaylistEmbed from '../components/PlaylistEmbed.astro';
+import { business as b } from '../data/site';
+---
+<Base
+  title="Lucio Rubino: Producer, Songwriter & Bassist | The Fish Tank"
+  description="Lucio “Lu” Rubino: StorySide:B frontman, bassist on Paramore’s gold debut, co-writer for RED and producer at The Fish Tank Recordings in St. Augustine, FL."
+  crumbs={[{ name: 'Lucio Rubino', path: '/lucio-rubino' }]}
+>
+  <PageHero eyebrow="About · The producer" title="Lucio Rubino: <em>beauty from silence.</em>"
+    lede="Singer. Songwriter. Guitarist. Bassist. Producer. For more than two decades Lu has lived on stages, on records and behind the glowing console, turning silence into something people feel." />
+
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="prose">
+        <p>Lu was the first in his Italian family to be born in America. He grew up in New England, landed in St. Augustine in middle school, and found his voice in the high school music program, holding down bass and stacking harmonies. Early MTV lit the fuse. Peter Gabriel, The Police, Depeche Mode and later Jeff Buckley poured the gasoline.</p>
+
+        <h2>On the road & on the radio</h2>
+        <p>His first taste of the road came in <strong>1998, as the touring bassist for A Flock of Seagulls</strong>, the new-wave legends behind “I Ran.” Back home, a song he recorded caught fire on Jacksonville rock radio, and the labels came calling. He signed with <strong>EMI</strong> as a member of Monkey the Fish.</p>
+        <p>In 2003 he co-founded <strong>StorySide:B</strong> with drummer Jordan Mohilowski. The band signed to <strong>Gotee Records</strong>, released two albums and rode a wave of Christian radio hits. Lu co-wrote “<strong>Be Still</strong>,” a song that still brings listeners comfort today. BMI named it one of the five most-played songs on Christian radio in 2008.</p>
+
+        <h2>On other people's records</h2>
+        <p>When a young band from Franklin, Tennessee was making its first album, Lu was the one holding down the low end. He played <strong>bass on most of Paramore’s debut, <em>All We Know Is Falling</em></strong>, which the RIAA later certified Gold. He co-wrote “<strong>Still Bleeding</strong>” (also playing bass) and “<strong>Your Devil Is a Ghost</strong>” on <strong>RED</strong>’s 2023 album <em>Rated R</em>. He also produced “<strong>In Time</strong>” on <strong>Grey Daze</strong>’s <em>Amends</em>, the album built around Chester Bennington’s early vocals, which reached #9 on Billboard’s Top Rock Albums chart.</p>
+        <p>He’s produced for jazz-fusion legend <strong>Larry Coryell</strong>, contributed to eight <strong>STARSET</strong> songs, worked on tracks for <strong>Seventh Day Slumber</strong> and <strong>Manafest</strong>, and written with <strong>Jill Cunniff</strong> of Luscious Jackson. Onstage, he’s toured Europe with <strong>RED</strong> and played a show with <strong>Disturbed</strong>. Back in his Monkey the Fish days, he co-produced the band with Pete Thornton.</p>
+        <p>As a producer he’s also made albums for <strong>Manic Drive</strong>, <strong>Todd Lombardo</strong> (the Grammy-nominated guitarist for Jerry Douglas), <strong>Lindsey Dedge</strong> and <strong>Lighthouse Music</strong>. In 2012 he released his self-titled solo album, a mix of modern folk, acoustic rock and guitar-driven pop.</p>
+
+        <h2>The Fish Tank</h2>
+        <p>Lu founded The Fish Tank Recordings in {b.founded} as a creative home, not a rental room with a clock on the wall. Every lesson from every stage, tour bus and label meeting lives in that room now. Whatever walks through the door, the mission never changes: find what makes the song matter, then make the record that proves it.</p>
+        <p><a href="/credits">Full credits →</a></p>
+      </div>
+      <aside class="side">
+        <div class="photo">Portrait: Lucio Rubino (to shoot)</div>
+        <ul class="facts">
+          <li><span>Plays</span>Vocals · bass · guitar · more</li>
+          <li><span>Performing rights</span>BMI</li>
+          <li><span>Labels</span>Gotee · EMI (Monkey the Fish)</li>
+          <li><span>Studio since</span>{b.founded}</li>
+        </ul>
+        <a class="btn" href="/contact">Work with Lu →</a>
+        <p class="social"><a href={b.social.instagramLu} target="_blank" rel="noopener">@iamluciorubino ↗</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <p class="eyebrow">Listen</p>
+      <h2>Lu on <em>Spotify.</em></h2>
+      <SpotifyGrid />
+      <div style="margin-top:3rem"><PlaylistEmbed height={380} /></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .side { display: grid; gap: 1.5rem; align-content: start; position: sticky; top: 100px; }
+  .facts { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); color: var(--cream); font-size: .95rem; }
+  .facts span { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .social { font-family: var(--font-mono); font-size: .8rem; }
+</style>

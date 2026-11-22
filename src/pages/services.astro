@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { business as b } from '../data/site';
+
+const services = [
+  { id: 'production', title: 'Full-Song Production', href: '/song-production', body: 'The whole journey, start to finish. Writing, structure, arrangement, instrumentation, performance, vocal arrangement, coaching and lyrics are all pushed until your song stops sounding like a demo and starts sounding like a release.' },
+  { id: 'recording', title: 'Hi-Definition Multitrack Recording', body: 'Up to 96 tracks of high-resolution detail on Avid Pro Tools HD and industry-standard converters, through an SSL Origin console and a mic locker led by a FLEA U47 Next and Royer and AEA ribbons. Every breath, string buzz and cymbal shimmer is caught exactly as it happened.' },
+  { id: 'mixing', title: 'Mixing', body: 'This is where a pile of tracks becomes a record. Balance, compression and EQ give every part its own space so the whole thing hits as one. Analog character comes from the Shadow Hills Dual Vandergraph, Elysia Nvelope, API 512b and a pair of Distressors.' },
+  { id: 'mastering', title: 'Mastering', body: 'The final polish before the world hears it. Flow, balance and loudness are dialed in with high-end hardware like the A-Designs Hammer tube EQ and modern tools, for a master that’s full, warm, punchy and crystal clear. We walk you through every step.' },
+  { id: 'arrangement', title: 'Symphonic Arrangement', body: 'When a song needs to soar: sweeping orchestral arrangements for strings, woodwinds, brass and orchestral percussion, built from top-tier sound libraries for a cinematic sound.' },
+  { id: 'coaching', title: 'Vocal & Instrument Coaching', body: 'Coaching in the moment, from someone who’s fronted bands and played on gold records, to pull out the take you didn’t know you had in you.' },
+  { id: 'scoring', title: 'Film, TV & Documentary Scoring', href: '/film-tv-scoring', body: 'Original music composed and recorded to picture, the invisible hand that tells an audience exactly how to feel.' },
+  { id: 'commercial', title: 'Commercial & Advertising Music', href: '/commercial-music', body: 'Custom music for TV and radio spots that makes your brand impossible to forget. People see you, and they also hear you.' },
+  { id: 'voiceover', title: 'Voice-Over & Spoken Word', body: 'Studio-quality voice-over, oral history recording, sound effects and Foley for video, podcasts and archives.' },
+  { id: 'live', title: 'On-Location Recording', body: 'We bring the studio to the stage: on-location 24-track live recording and sound reinforcement for concerts and events.' },
+  { id: 'consulting', title: 'Music Business Consultation', body: 'Straight talk about releasing, positioning and building a career, from someone who has signed the deals, toured the miles and put out the records.' },
+];
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'Studio services',
+  itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.title, provider: { '@id': `${b.url}/#studio` } } })),
+}];
+---
+<Base
+  title="Recording, Mixing & Mastering Services in St. Augustine | The Fish Tank"
+  description="Recording, mixing, mastering, symphonic arrangement, vocal coaching, voice-over and on-location recording at The Fish Tank Recordings in St. Augustine, FL."
+  schema={schema}
+  crumbs={[{ name: 'Services', path: '/services' }]}
+>
+  <PageHero eyebrow="Services" title="Recording, mixing, mastering <em>and everything around it.</em>"
+    lede="Whether it’s a full-blown production or a single mix, every project runs through the same room, the same ears and the same refusal to settle for good enough." />
+
+  <section class="section">
+    <div class="wrap svc-list">
+      {services.map((s, i) => (
+        <article id={s.id} class="svc">
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>{s.title}</h2>
+            <p>{s.body}</p>
+            {s.href && <a href={s.href}>Learn more →</a>}
+          </div>
+        </article>
+      ))}
+      <p class="gearlink">See everything in the room on the <a href="/gear">gear list →</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .svc { display: grid; grid-template-columns: 4rem 1fr; gap: 1.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
+  .svc h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .svc p { max-width: 65ch; }
+  .num { font-family: var(--font-mono); color: var(--amber); font-size: .9rem; padding-top: .6rem; }
+  .svc a { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+  .gearlink { margin-top: 2.5rem; }
+</style>

@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { business as b } from '../data/site';
+const schema = [{
+  '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Commercial music production',
+  name: 'Custom Music for TV & Radio Ads', provider: { '@id': `${b.url}/#studio` },
+}];
+---
+<Base
+  title="Custom Commercial Music & Jingles for TV and Radio | The Fish Tank"
+  description="Custom music for TV and radio commercials, composed and produced at The Fish Tank Recordings in St. Augustine, FL. Your brand is what people hear, too."
+  schema={schema}
+  crumbs={[{ name: 'Commercial Music', path: '/commercial-music' }]}
+>
+  <PageHero eyebrow="Our work · Advertising" title="Your brand is also <em>what people hear.</em>"
+    lede="Thirty seconds to win a heart, or lose it. We write original music for TV and radio spots that grabs attention in the first beat and stays with people long after the ad is over. It’s written to your brief, produced in-house and delivered ready for broadcast." />
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="prose">
+        <h2>Selected work</h2>
+        <ul class="work"><li><span>TV commercial</span><strong>Bozard Ford: Summer Sales Event</strong></li></ul>
+        <blockquote>“Lu took our client’s first notes, wrote and produced custom music for their TV spots, and hit the nail on the head.”<cite>Mike Rolandelli, Creative partner, RFR</cite></blockquote>
+        <a class="btn" href="/contact">Brief us →</a>
+      </div>
+      <div class="photo photo--wide">Spot video embed (send links)</div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .work { list-style: none; padding: 0; border-top: 1px solid var(--line); }
+  .work li { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .work span { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .work strong { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; }
+  blockquote { margin: 2.5rem 0; font-family: var(--font-display); font-size: 1.6rem; font-style: italic; line-height: 1.35; }
+  cite { display: block; font-family: var(--font-mono); font-style: normal; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: .8rem; }
+</style>

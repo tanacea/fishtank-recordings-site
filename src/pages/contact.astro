@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import InquiryForm from '../components/InquiryForm.vue';
+import { business as b } from '../data/site';
+---
+<Base
+  title="Book a Session: Contact The Fish Tank Recordings, St. Augustine"
+  description="Start your record. Send a project inquiry to producer Lucio Rubino at The Fish Tank Recordings, 24 Althea St, St. Augustine, FL. Call (904) 377-7611."
+  crumbs={[{ name: 'Contact', path: '/contact' }]}
+>
+  <PageHero eyebrow="Contact · Let's work together" title="Every great record started <em>with a conversation.</em>"
+    lede="Tell us about the song that keeps you up at night. Share a demo, how many songs you’ve got and when you want the world to hear them. Lu reads every inquiry himself." />
+  <section class="section">
+    <div class="wrap grid split contact">
+      <div class="card"><InquiryForm client:load /></div>
+      <aside>
+        <h2 class="h">Or reach out directly</h2>
+        <dl>
+          <dt>Call</dt><dd><a href={`tel:${b.phoneE164}`}>{b.phone}</a></dd>
+          <dt>Email</dt><dd><a href={`mailto:${b.email}`}>{b.email}</a></dd>
+          <dt>Studio</dt><dd>{b.street}<br />{b.city}, {b.region} {b.postal}<br /><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=24+Althea+Street+St+Augustine+FL+32084">Directions ↗</a></dd>
+          <dt>Hours</dt><dd>By appointment</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact { align-items: start; }
+  .h { font-size: 1.8rem; }
+  dl { margin: 0; }
+  dt { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 1.5rem; }
+  dd { margin: .3rem 0 0; color: var(--cream); font-size: 1.05rem; line-height: 1.6; }
+</style>

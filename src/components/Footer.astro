@@ -1,0 +1,71 @@
+---
+import Logo from './Logo.astro';
+import { business as b } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__cta">
+      <p class="eyebrow">The red light’s waiting</p>
+      <h2>Bring the song. <em>We’ll build the record.</em></h2>
+      <p class="ftr__lede">Your next record is one conversation away.</p>
+      <a href="/contact" class="btn">Start your record →</a>
+    </div>
+    <hr class="rule" />
+    <div class="ftr__grid">
+      <div>
+        <Logo />
+        <p class="ftr__blurb">Songs in. Records out. Full-song production, recording, mixing and mastering in a marsh-view sanctuary in St. Augustine, Florida, since {b.founded}.</p>
+      </div>
+      <div>
+        <h3 class="ftr__h">Studio</h3>
+        <address>
+          {b.street}<br />{b.city}, {b.region} {b.postal}<br />
+          <a href={`tel:${b.phoneE164}`}>{b.phone}</a><br />
+          <a href={`mailto:${b.email}`}>{b.email}</a>
+        </address>
+        <p class="ftr__small">Sessions by appointment</p>
+      </div>
+      <div>
+        <h3 class="ftr__h">Work</h3>
+        <ul>
+          <li><a href="/song-production">Song Production</a></li>
+          <li><a href="/services">Recording · Mixing · Mastering</a></li>
+          <li><a href="/film-tv-scoring">Film & TV Scoring</a></li>
+          <li><a href="/commercial-music">Commercial Music</a></li>
+          <li><a href="/credits">Credits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="ftr__h">Follow</h3>
+        <ul>
+          <li><a href={b.social.instagramStudio} rel="me noopener" target="_blank">Instagram · Studio</a></li>
+          <li><a href={b.social.instagramLu} rel="me noopener" target="_blank">Instagram · Lucio</a></li>
+          <li><a href={b.social.spotifyLu} rel="me noopener" target="_blank">Spotify · Lucio</a></li>
+          <li><a href={b.social.soundcloud} rel="me noopener" target="_blank">SoundCloud</a></li>
+          <li><a href={b.social.youtube} rel="me noopener" target="_blank">YouTube</a></li>
+          <li><a href={b.social.facebook} rel="me noopener" target="_blank">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ftr__legal">© {year} {b.name} · St. Augustine, Florida</p>
+  </div>
+</footer>
+
+<style>
+  .ftr { background: var(--ink-2); border-top: 1px solid var(--line); padding-top: 5rem; }
+  .ftr__cta { text-align: center; padding-bottom: 4.5rem; }
+  .ftr__cta h2 { max-width: 18ch; margin: 0 auto 1rem; }
+  .ftr__lede { margin-bottom: 2rem; }
+  .ftr__grid { display: grid; gap: 2.5rem; padding: 3.5rem 0; }
+  @media (min-width: 760px) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+  .ftr__blurb { margin-top: 1.2rem; font-size: .95rem; max-width: 34ch; }
+  .ftr__h { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  address { font-style: normal; color: var(--cream-dim); font-size: .95rem; line-height: 1.8; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { margin-bottom: .55rem; }
+  li a { color: var(--cream-dim); font-size: .95rem; }
+  li a:hover { color: var(--amber); }
+  .ftr__small { font-size: .8rem; color: var(--muted); margin-top: .8rem; }
+  .ftr__legal { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--muted); border-top: 1px solid var(--line); padding: 1.5rem 0; margin: 0; }
+</style>

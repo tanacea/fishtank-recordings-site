@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { business as b } from '../data/site';
+
+interface Crumb { name: string; path: string }
+interface Props {
+  title: string;            // <60 chars, keyword first
+  description: string;      // 140–160 chars
+  ogImage?: string;
+  schema?: object[];        // extra JSON-LD blocks for this page
+  crumbs?: Crumb[];
+  noindex?: boolean;
+}
+const { title, description, ogImage = '/og-default.jpg', schema = [], crumbs = [], noindex = false } = Astro.props;
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/?index$/, '').replace(/\/$/, '') || '/';
+const canonical = new URL(cleanPath, Astro.site).href;
+
+// Site-wide entity graph: the studio (LocalBusiness) + its owner (Person).
+const org = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'ProfessionalService'],
+  '@id': `${b.url}/#studio`,
+  name: b.name,
+  additionalType: 'https://en.wikipedia.org/wiki/Recording_studio',
+  description: 'Recording studio and full-song music production in St. Augustine, Florida, led by producer Lucio Rubino.',
+  url: b.url,
+  telephone: b.phoneE164,
+  email: b.email,
+  foundingDate: String(b.founded),
+  image: `${b.url}/og-default.jpg`,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: b.street,
+    addressLocality: b.city,
+    addressRegion: b.region,
+    postalCode: b.postal,
+    addressCountry: b.country,
+  },
+  areaServed: ['St. Augustine', 'Jacksonville', 'North Florida', 'Nashville', 'United States'],
+  founder: { '@id': `${b.url}/#lucio` },
+  sameAs: [b.social.instagramStudio, b.social.facebook, b.social.soundcloud, b.social.youtube],
+};
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${b.url}/#lucio`,
+  name: 'Lucio Rubino',
+  alternateName: 'Lu Rubino',
+  jobTitle: 'Record Producer, Songwriter, Multi-instrumentalist',
+  worksFor: { '@id': `${b.url}/#studio` },
+  url: `${b.url}/lucio-rubino`,
+  sameAs: [b.social.instagramLu, b.social.spotifyLu],
+  memberOf: { '@type': 'MusicGroup', name: 'StorySide:B', sameAs: b.social.spotifyStorySideB },
+};
+const breadcrumb = crumbs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'Home', path: '/' }, ...crumbs].map((c, i) => ({
+        '@type': 'ListItem', position: i + 1, name: c.name, item: new URL(c.path, Astro.site).href,
+      })),
+    }
+  : null;
+const blocks = [org, person, breadcrumb, ...schema].filter(Boolean);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#0e0c0a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={b.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    {blocks.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a href="#main" class="sr-only">Skip to content</a>
+    <Header />
+    <main id="main"><slot /></main>
+    <Footer />
+  </body>
+</html>

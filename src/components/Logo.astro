@@ -1,0 +1,23 @@
+---
+// Wordmark: a "tank" frame holding a sound wave.
+---
+<a href="/" class="logo" aria-label="The Fish Tank Recordings, home">
+  <svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true">
+    <rect x="2" y="6" width="36" height="28" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+    <path d="M7 22 Q10 14 13 22 T19 22 T25 22 T31 20 L33 20" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" />
+    <circle cx="31" cy="12" r="1.6" fill="var(--teal)" />
+    <circle cx="27" cy="10" r="1" fill="var(--teal)" />
+  </svg>
+  <span class="logo__text">
+    <span class="logo__name">The Fish Tank</span>
+    <span class="logo__sub">Recordings · Est. 2002</span>
+  </span>
+</a>
+
+<style>
+  .logo { display: inline-flex; align-items: center; gap: .7rem; color: var(--cream); }
+  .logo:hover { color: var(--cream); }
+  .logo__text { display: flex; flex-direction: column; line-height: 1.05; }
+  .logo__name { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; }
+  .logo__sub { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+</style>

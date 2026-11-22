@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { gear } from '../data/site';
+---
+<Base
+  title="Studio Gear List: SSL Origin, FLEA U47, Pro Tools HD | The Fish Tank"
+  description="The Fish Tank Recordings gear list: SSL Origin console, Pro Tools HD, FLEA U47 Next, Royer and AEA ribbons, Shadow Hills, Elysia, API, Distressors and a wall of instruments."
+  crumbs={[{ name: 'Gear', path: '/gear' }]}
+>
+  <PageHero eyebrow="Services · Gear list" title="The <em>arsenal.</em>" lede="Glowing tubes, legendary mics and a wall of instruments begging to be played. Here’s everything in the racks, on the stands and on the walls." />
+  <section class="section">
+    <div class="wrap grid grid-2">
+      {gear.map((g) => (
+        <div class="card">
+          <h2 class="gh">{g.group}</h2>
+          <ul>{g.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .gh { font-size: 1.7rem; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { padding: .6rem 0; border-bottom: 1px dashed var(--line); color: var(--cream-dim); }
+  li:last-child { border-bottom: 0; }
+  li::before { content: '▸'; color: var(--amber); margin-right: .7rem; font-size: .8rem; }
+</style>

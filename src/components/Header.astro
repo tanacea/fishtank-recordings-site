@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+import { nav } from '../data/site';
+const path = Astro.url.pathname.replace(/\.html$/, '');
+---
+<header class="hdr">
+  <div class="wrap hdr__inner">
+    <Logo />
+    <input type="checkbox" id="navtoggle" class="hdr__toggle" aria-label="Open menu" />
+    <label for="navtoggle" class="hdr__burger" aria-hidden="true"><span></span><span></span></label>
+    <nav aria-label="Main">
+      <ul>
+        {nav.map((n) => (
+          <li><a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a></li>
+        ))}
+        <li><a href="/contact" class="btn hdr__cta">Book a session</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .hdr { position: sticky; top: 0; z-index: 50; background: rgba(14,12,10,.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .hdr__inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  nav ul { list-style: none; display: flex; gap: 1.8rem; align-items: center; margin: 0; padding: 0; }
+  nav a:not(.btn) { color: var(--cream-dim); font-size: .93rem; position: relative; }
+  nav a:not(.btn):hover, nav a[aria-current] { color: var(--cream); }
+  nav a[aria-current]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--amber); }
+  .hdr__cta { padding: .7rem 1.1rem; font-size: .7rem; }
+  .hdr__toggle, .hdr__burger { display: none; }
+
+  @media (max-width: 960px) {
+    .hdr__burger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; padding: 10px; }
+    .hdr__burger span { width: 26px; height: 2px; background: var(--cream); transition: .2s; }
+    nav { position: absolute; top: 76px; left: 0; right: 0; background: var(--ink); border-bottom: 1px solid var(--line); display: none; }
+    nav ul { flex-direction: column; align-items: flex-start; padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem); gap: 1.1rem; }
+    .hdr__toggle:checked ~ nav { display: block; }
+    .hdr__toggle:checked + .hdr__burger span:first-child { transform: translateY(4px) rotate(45deg); }
+    .hdr__toggle:checked + .hdr__burger span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  }
+</style>

@@ -1,0 +1,8 @@
+# Netlify 301 redirects from the old Squarespace URLs
+/thestudio        /studio            301
+/luciorubino      /lucio-rubino      301
+/songproduction   /song-production   301
+/scoring          /film-tv-scoring   301
+/advertising      /commercial-music  301
+/ourservices      /services          301
+/gearlist         /gear              301
