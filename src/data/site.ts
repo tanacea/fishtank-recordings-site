@@ -66,8 +66,8 @@ export const credits: Credit[] = [
     year: '2005',
     label: 'Fueled by Ramen',
     role: 'Bass (most tracks)',
-    note: 'RIAA Certified Gold',
-    source: 'classicrockhistory.com; Wikipedia (RIAA Gold, 2014)',
+    note: 'RIAA Certified Platinum (2025)',
+    source: 'classicrockhistory.com; Forbes (RIAA Platinum, Aug 2025)',
     featured: true,
   },
   {
