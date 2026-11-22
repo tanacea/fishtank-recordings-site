@@ -65,9 +65,9 @@ export const credits: Credit[] = [
     work: 'All We Know Is Falling',
     year: '2005',
     label: 'Fueled by Ramen',
-    role: 'Bass (most tracks)',
-    note: 'RIAA Certified Platinum (2025)',
-    source: 'classicrockhistory.com; Forbes (RIAA Platinum, Aug 2025)',
+    role: 'Bass (every song except “Here We Go Again”)',
+    note: 'RIAA Certified Platinum (2025) · single “Pressure” also Platinum',
+    source: 'Album credits via Wikipedia; Forbes (RIAA Platinum, Aug 2025); Wikipedia discography (“Pressure” Platinum)',
     featured: true,
   },
   {

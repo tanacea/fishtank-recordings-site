@@ -30,7 +30,7 @@ const schema = [{
       <div>
         <p class="eyebrow">Recording studio · St. Augustine, FL · Est. {b.founded}</p>
         <h1>The St. Augustine recording studio where <em>songs become records.</em></h1>
-        <p class="lede">Walk in with a voice memo. Walk out with a record that hits like the ones you grew up worshipping. Producer <strong>Lucio Rubino</strong> has played bass on a platinum Paramore album and written with RED, and he shapes every note from the first chord to the final master in a tube-warm sanctuary overlooking the St. Augustine marsh.</p>
+        <p class="lede">Walk in with a voice memo. Walk out with a record that hits like the ones you grew up worshipping. Producer <strong>Lucio Rubino</strong> has played bass on a Platinum Paramore album and written with RED, and he shapes every note from the first chord to the final master in a tube-warm sanctuary overlooking the St. Augustine marsh.</p>
         <div class="hero__ctas">
           <a href="/contact/" class="btn">Start your record →</a>
           <a href="#listen" class="btn btn--ghost">▶ Hear the proof</a>
@@ -58,13 +58,54 @@ const schema = [{
     </div>
   </section>
 
+  <!-- PLATINUM FEATURE -->
+  <section class="plat">
+    <div class="wrap plat__grid">
+      <div class="plat__plaque" aria-hidden="true">
+        <svg viewBox="0 0 320 320" class="plat__disc">
+          <defs>
+            <radialGradient id="pd" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f4f4f2"/><stop offset="38%" stop-color="#c9ccd1"/>
+              <stop offset="62%" stop-color="#e9eaec"/><stop offset="100%" stop-color="#9aa0a8"/>
+            </radialGradient>
+            <linearGradient id="ps" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff" stop-opacity=".75"/><stop offset="45%" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <circle cx="160" cy="160" r="150" fill="url(#pd)"/>
+          <g fill="none" stroke="#7d838b" stroke-opacity=".35">
+            <circle cx="160" cy="160" r="135"/><circle cx="160" cy="160" r="122"/><circle cx="160" cy="160" r="109"/>
+            <circle cx="160" cy="160" r="96"/><circle cx="160" cy="160" r="83"/><circle cx="160" cy="160" r="70"/>
+          </g>
+          <circle cx="160" cy="160" r="52" fill="#1b1611"/>
+          <circle cx="160" cy="160" r="50" fill="none" stroke="var(--amber)" stroke-width="1.5"/>
+          <text x="160" y="153" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="var(--amber)">RIAA</text>
+          <text x="160" y="172" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="17" fill="#efe6d8">Platinum</text>
+          <circle cx="160" cy="160" r="4" fill="#0e0c0a"/>
+          <circle cx="160" cy="160" r="150" fill="url(#ps)"/>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow">RIAA Certified Platinum · 2025</p>
+        <h2>Lu played bass on a <em>Platinum record.</em></h2>
+        <p class="lede">Paramore’s debut, <em>All We Know Is Falling</em>, has Lu on bass on every song but one, from the opening track, “Pressure,” to the last note. Twenty years after it came out, the RIAA certified the album <strong>Platinum</strong>. “Pressure” has gone Platinum too.</p>
+        <p>That’s the low end that helped launch one of the biggest rock bands of a generation. It’s the same pair of hands that will be on your record.</p>
+        <div class="plat__stats">
+          <div><strong>Platinum</strong><span>Album · RIAA 2025</span></div>
+          <div><strong>Platinum</strong><span>“Pressure” single</span></div>
+          <div><strong>All but 1</strong><span>songs with Lu on bass</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROOF -->
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">The receipts</p>
       <h2>Credits that <em>speak for themselves.</em></h2>
       <div class="grid grid-2 proof">
-        <a class="card" href="/credits/"><span class="num">PARAMORE · 2005</span><h3>The low end on a <em>platinum record.</em></h3><p>Lu laid down the bass on most of <em>All We Know Is Falling</em>, the debut that launched Paramore toward arenas around the world. Twenty years later, the RIAA certified it Platinum.</p></a>
+        <a class="card" href="/credits/#songs"><span class="num">STARSET · 8 SONGS</span><h3>In the room with <em>arena rock.</em></h3><p>Lu had a hand in eight songs by the cinematic hard-rock juggernaut STARSET, including “Trials,” “Manifest,” “Echo” and “Faultline.”</p></a>
         <a class="card" href="/credits/"><span class="num">RED · 2023</span><h3>Writing with <em>heavyweights.</em></h3><p>He co-wrote “Still Bleeding” (and played its bass) and “Your Devil Is a Ghost” for <em>Rated R</em> by RED, the Grammy-nominated, Nashville-based hard-rock powerhouse.</p></a>
         <a class="card" href="/credits/"><span class="num">GREY DAZE · 2020</span><h3>Producing for <em>a legend’s voice.</em></h3><p>Lu produced “In Time” for <em>Amends</em>, a record built around Chester Bennington’s earliest vocals. It climbed to #9 on Billboard’s Top Rock Albums chart.</p></a>
         <a class="card" href="/credits/"><span class="num">STORYSIDE:B · 2008</span><h3>A song radio <em>couldn’t stop playing.</em></h3><p>As frontman of Gotee Records’ StorySide:B, Lu co-wrote “Be Still,” which BMI named one of the five most-played songs on Christian radio in 2008.</p></a>
@@ -217,6 +258,18 @@ const schema = [{
   .marquee span::after { content: '✦'; color: var(--amber); font-style: normal; font-size: .9rem; margin-left: 4rem; }
   @keyframes scroll { to { transform: translateX(-50%); } }
 
+  .plat { padding: clamp(4rem, 9vw, 7rem) 0; border-bottom: 1px solid var(--line);
+    background: radial-gradient(ellipse 50% 70% at 20% 50%, rgba(220,224,230,.10), transparent 70%), var(--ink); }
+  .plat__grid { display: grid; gap: 3rem; align-items: center; }
+  @media (min-width: 900px) { .plat__grid { grid-template-columns: .8fr 1.2fr; gap: 5rem; } }
+  .plat__plaque { padding: 1.6rem; border: 1px solid var(--line); border-radius: 6px; max-width: 420px; margin-inline: auto;
+    background: linear-gradient(160deg, #241d16, #0f0d0b); box-shadow: 0 30px 80px rgba(0,0,0,.5), inset 0 0 0 8px #15110d; }
+  .plat__disc { width: 100%; height: auto; display: block; animation: spin 24s linear infinite; filter: drop-shadow(0 10px 30px rgba(220,224,230,.18)); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .plat h2 em { color: #dfe3e8; }
+  .plat__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .plat__stats strong { display: block; font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 400; color: #e6e9ed; }
+  .plat__stats span { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .proof .card, .svc .card { color: inherit; }
   .proof .card:hover, .svc .card:hover { transform: translateY(-3px); border-color: var(--amber-deep); }
   .proof h3 em { color: var(--amber); }
