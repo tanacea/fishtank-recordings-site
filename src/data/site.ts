@@ -233,17 +233,18 @@ export const testimonials = [
   },
 ];
 
-// SoundCloud track IDs carried over from the original site.
+// SoundCloud tracks (permalinks verified on soundcloud.com/thefishtankrecordings, Nov 2026).
+// The widget loads tracks by permalink; the old numeric-ID URLs no longer resolve.
+const SC = 'https://soundcloud.com/thefishtankrecordings/';
 export const tracks = [
-  { title: 'Alabama Rhap Corollary', artist: 'The Eleventh House', id: '270040629' },
-  { title: 'My Only Hope', artist: 'Elizabeth Grace', id: '270041340' },
-  { title: 'Written In The Stars', artist: 'Billy Lord', id: '270043222' },
-  { title: 'New Blood', artist: 'Farewell To Fear', id: '270044306' },
-  { title: 'Somewhere Down The Road', artist: 'Tom Freeman', id: '270044927' },
-  { title: 'Devil In Red Shoes', artist: 'Samanth Leigh', id: '270045417' },
-  { title: 'Emergency', artist: 'The Ineloquent', id: '270045897' },
-  { title: 'Is A Life So Small', artist: 'Randy Brantley', id: '270047241' },
-  { title: 'Fallen Skies', artist: 'UnMasKd', id: '270048949' },
+  { title: 'Fallen Skies', artist: 'UnMasKd', url: SC + 'unmaskd-fallen-skies' },
+  { title: 'Is A Life So Small', artist: 'Randy Brantley', url: SC + 'randy-brantley-is-a-life-so-small' },
+  { title: 'Emergency', artist: 'The Ineloquent', url: SC + 'the-ineloquent-emergency' },
+  { title: 'Devil In Red Shoes', artist: 'Samantha Leigh', url: SC + 'samantha-leigh-devil-in-red-shoes' },
+  { title: 'Somewhere Down The Road', artist: 'Tom Freeman', url: SC + 'tomfreeman-02v1-somewheredowntheroad-isrc-000000000000' },
+  { title: 'New Blood', artist: 'Farewell To Fear', url: SC + 'farewell-to-fear-new-blood' },
+  { title: 'Written In The Stars', artist: 'Billy Lord', url: SC + 'billylord-03v1-writteninthestars' },
+  { title: 'My Only Hope', artist: 'Elizabeth Grace', url: SC + 'elizabethgrace-my-only-hope' },
 ];
 
 export const gear = [

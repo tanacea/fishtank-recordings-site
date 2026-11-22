@@ -3,27 +3,25 @@
 // loads the heavy SoundCloud iframe when someone presses play.
 import { ref } from 'vue';
 
-const props = defineProps<{ tracks: { title: string; artist: string; id: string }[] }>();
+const props = defineProps<{ tracks: { title: string; artist: string; url: string }[] }>();
 const active = ref<string | null>(null);
 
-const src = (id: string) =>
-  `https://w.soundcloud.com/player/?url=${encodeURIComponent(
-    `https://api.soundcloud.com/tracks/${id}`,
-  )}&color=%23f0a43a&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false`;
+const src = (url: string) =>
+  `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23f0a43a&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false`;
 </script>
 
 <template>
   <ol class="tl">
-    <li v-for="(t, i) in props.tracks" :key="t.id" :class="{ on: active === t.id }">
-      <button class="tl__row" :aria-pressed="active === t.id" @click="active = active === t.id ? null : t.id">
+    <li v-for="(t, i) in props.tracks" :key="t.url" :class="{ on: active === t.url }">
+      <button class="tl__row" :aria-pressed="active === t.url" @click="active = active === t.url ? null : t.url">
         <span class="tl__n">{{ String(i + 1).padStart(2, '0') }}</span>
-        <span class="tl__icon" aria-hidden="true">{{ active === t.id ? '■' : '▶' }}</span>
+        <span class="tl__icon" aria-hidden="true">{{ active === t.url ? '■' : '▶' }}</span>
         <span class="tl__title">{{ t.title }}</span>
         <span class="tl__artist">{{ t.artist }}</span>
         <span class="tl__bars" aria-hidden="true"><i /><i /><i /><i /></span>
       </button>
-      <div v-if="active === t.id" class="tl__player">
-        <iframe :title="`${t.title} by ${t.artist}`" width="100%" height="120" allow="autoplay" :src="src(t.id)" loading="lazy" />
+      <div v-if="active === t.url" class="tl__player">
+        <iframe :title="`${t.title} by ${t.artist}`" width="100%" height="120" allow="autoplay" :src="src(t.url)" loading="lazy" />
       </div>
     </li>
   </ol>
