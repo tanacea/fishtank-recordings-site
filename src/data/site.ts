@@ -39,12 +39,12 @@ export const spotify = [
 ];
 
 export const nav = [
-  { label: 'Production', href: '/song-production' },
-  { label: 'Services', href: '/services' },
-  { label: 'Credits', href: '/credits' },
-  { label: 'Lucio', href: '/lucio-rubino' },
-  { label: 'The Studio', href: '/studio' },
-  { label: 'Gear', href: '/gear' },
+  { label: 'Production', href: '/song-production/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Credits', href: '/credits/' },
+  { label: 'Lucio', href: '/lucio-rubino/' },
+  { label: 'The Studio', href: '/studio/' },
+  { label: 'Gear', href: '/gear/' },
 ];
 
 // Verified, publishable credits. `source` = where it was confirmed.

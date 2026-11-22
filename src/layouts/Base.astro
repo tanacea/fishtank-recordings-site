@@ -14,7 +14,7 @@ interface Props {
   noindex?: boolean;
 }
 const { title, description, ogImage = '/og-default.jpg', schema = [], crumbs = [], noindex = false } = Astro.props;
-const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/?index$/, '').replace(/\/$/, '') || '/';
+const cleanPath = ('/' + Astro.url.pathname.replace(/\.html$/, '').replace(/\/?index$/, '').replace(/^\/+|\/+$/g, '') + '/').replace(/^\/\/$/, '/');
 const canonical = new URL(cleanPath, Astro.site).href;
 
 // Site-wide entity graph: the studio (LocalBusiness) + its owner (Person).
