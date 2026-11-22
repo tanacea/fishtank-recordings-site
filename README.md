@@ -29,3 +29,9 @@ Built with Astro (fast static pages that Google can read easily) and Vue (the in
 4. **Domain:** Netlify → Domain settings → add `thefishtankrecordings.com`, then update DNS where the domain is registered (currently Squarespace).
 5. Old Squarespace links (e.g. /luciorubino) automatically 301-redirect to the new pages via `public/_redirects`.
 6. Submit `https://thefishtankrecordings.com/sitemap-index.xml` in Google Search Console.
+
+## Dev site on Sevalla (static site)
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Node version: 22
+- Environment variable: `PUBLIC_NOINDEX=true` (hides the dev site from Google; remove it for the production site)

@@ -74,7 +74,7 @@ const blocks = [org, person, breadcrumb, ...schema].filter(Boolean);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {(noindex || import.meta.env.PUBLIC_NOINDEX === 'true') && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#0e0c0a" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
