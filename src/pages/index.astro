@@ -16,14 +16,14 @@ const featured = [
   { title: 'Alabama Rhap Corollary', artist: 'Larry Coryell', id: songId('Alabama Rhap Corollary', 'Larry Coryell') },
   { title: 'Kamikaze', artist: 'Manafest', id: songId('Kamikaze', 'Manafest') },
   { title: 'Addicted To My Pain', artist: 'Seventh Day Slumber', id: songId('Addicted To My Pain', 'Seventh Day Slumber') },
-  { title: 'I Am a Pilgrim', artist: 'Lucio Rubino', note: 'Lu’s solo work', id: songId('I Am a Pilgrim', 'Lucio Rubino') },
+  { title: 'I Am a Pilgrim', artist: 'Lucio Rubino', note: 'Solo', id: songId('I Am a Pilgrim', 'Lucio Rubino') },
 ];
 
 const faq = [
   { q: 'What does full-song production include?', a: 'Everything it takes to turn a song idea into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), vocal coaching, editing, mixing and mastering. You can come in with a voice memo or a finished demo.' },
-  { q: 'Do I need a band to record a full production?', a: 'No. Lucio is a multi-instrumentalist who plays bass, guitar and more on productions. He played bass on Paramore’s platinum-certified debut, so many artists come in with just a voice and a guitar and leave with a full-band record.' },
+  { q: 'Do I need a band to record a full production?', a: 'No. Rubino is a multi-instrumentalist who covers guitars, bass, keys, drums and programming on his productions, so many artists arrive with only a voice and a guitar.' },
   { q: 'Where is the studio?', a: `The Fish Tank Recordings is at ${b.street} in St. Augustine, Florida: an elevated studio down a private drive, overlooking the marsh, about 45 minutes from Jacksonville. Sessions are by appointment.` },
-  { q: 'How do I get a quote?', a: 'Send an inquiry with a link to your demo, how many songs you have and your timeline. Lu will reply personally with a plan and price for your project.' },
+  { q: 'How do I get a quote?', a: 'Send an inquiry with a link to your demo, how many songs you have and your timeline. Rubino replies personally with a plan and a price.' },
 ];
 
 const schema = [{
@@ -34,19 +34,19 @@ const schema = [{
 }];
 ---
 <Base
-  title="Recording Studio & Music Producer in St. Augustine, FL | The Fish Tank"  description="Full-song production, recording, mixing and mastering in St. Augustine, FL. Producer Lucio Rubino: bass on Paramore’s platinum debut, co-writer for RED. Since 2002."
+  title="Recording Studio & Music Producer in St. Augustine, FL | The Fish Tank"  description="Full-song production, recording, mixing and mastering in St. Augustine, FL. Producer Lucio Rubino: bass on Paramore’s Platinum debut, co-writer for RED. Since 2002."
   schema={schema}
 >
   <!-- HERO -->
   <section class="hero">
     <div class="wrap hero__grid">
       <div>
-        <p class="eyebrow">Recording studio · St. Augustine, FL · Est. {b.founded}</p>
-        <h1>The St. Augustine recording studio where <em>songs become records.</em></h1>
-        <p class="lede">Walk in with a voice memo. Walk out with a record that hits like the ones you grew up worshipping. Producer <strong>Lucio Rubino</strong> has played bass on a Platinum Paramore album and written with RED, and he shapes every note from the first chord to the final master in a tube-warm sanctuary overlooking the St. Augustine marsh.</p>
+        <p class="eyebrow">Recording studio · St. Augustine, Fla. · Since {b.founded}</p>
+        <h1>The St. Augustine studio where Lucio Rubino <em>turns songs into records.</em></h1>
+        <p class="lede">A multi-instrumentalist, producer and programmer, Rubino played on Paramore’s Platinum-certified debut, co-wrote for Nashville rock band RED and produced a track on a Top 10 rock album for Grey Daze. At <strong>The Fish Tank</strong>, his elevated studio overlooking the St. Augustine marsh, he takes artists’ songs from demo to master.</p>
         <div class="hero__ctas">
-          <a href="/contact/" class="btn">Start your record →</a>
-          <a href="#listen" class="btn btn--ghost">▶ Hear the proof</a>
+          <a href="/contact/" class="btn">Start a project →</a>
+          <a href="#listen" class="btn btn--ghost">▶ Listen</a>
         </div>
       </div>
       <div class="vu" aria-hidden="true">
@@ -99,14 +99,14 @@ const schema = [{
         </svg>
       </div>
       <div>
-        <p class="eyebrow">RIAA Certified Platinum · 2025</p>
-        <h2>Lu played bass on a <em>Platinum record.</em></h2>
-        <p class="lede">Paramore’s debut, <em>All We Know Is Falling</em>, has Lu on bass on every song but one, from the opening track, “Pressure,” to the last note. Twenty years after it came out, the RIAA certified the album <strong>Platinum</strong>. “Pressure” has gone Platinum too.</p>
-        <p>That’s the low end that helped launch one of the biggest rock bands of a generation. It’s the same pair of hands that will be on your record.</p>
+        <p class="eyebrow">RIAA Platinum · August 2025</p>
+        <h2>The bass line under <em>Paramore’s Platinum debut.</em></h2>
+        <p class="lede">When Paramore cut <em>All We Know Is Falling</em> in 2004 and 2005, the band was between bassists. Rubino, then fronting StorySide:B, filled the chair and played on every track except “Here We Go Again.” The album never reached the Billboard 200 on release. Twenty years later, in August 2025, the RIAA certified it <strong>Platinum</strong>, and lead single “Pressure” has passed a million units as well.</p>
+        <p>On that record he was the bassist. On most of his others, he plays nearly everything, then programs, produces and mixes the result.</p>
         <div class="plat__stats">
-          <div><strong>Platinum</strong><span>Album · RIAA 2025</span></div>
+          <div><strong>Platinum</strong><span>Album · RIAA, 2025</span></div>
           <div><strong>Platinum</strong><span>“Pressure” single</span></div>
-          <div><strong>All but 1</strong><span>songs with Lu on bass</span></div>
+          <div><strong>All but 1</strong><span>Tracks with Rubino on bass</span></div>
         </div>
       </div>
     </div>
@@ -115,15 +115,15 @@ const schema = [{
   <!-- PROOF -->
   <section class="section">
     <div class="wrap">
-      <p class="eyebrow">The receipts</p>
-      <h2>Credits that <em>speak for themselves.</em></h2>
+      <p class="eyebrow">Selected credits</p>
+      <h2>A résumé that crosses <em>genres and decades.</em></h2>
       <div class="grid grid-2 proof">
-        <a class="card" href="/credits/#songs"><span class="num">STARSET · 8 SONGS</span><h3>In the room with <em>arena rock.</em></h3><p>Lu had a hand in eight songs by the cinematic hard-rock juggernaut STARSET, including “Trials,” “Manifest,” “Echo” and “Faultline.”</p></a>
-        <a class="card" href="/credits/"><span class="num">RED · 2023</span><h3>Writing with <em>heavyweights.</em></h3><p>He co-wrote “Still Bleeding” (and played its bass) and “Your Devil Is a Ghost” for <em>Rated R</em> by RED, the Grammy-nominated, Nashville-based hard-rock powerhouse.</p></a>
-        <a class="card" href="/credits/"><span class="num">GREY DAZE · 2020</span><h3>Producing for <em>a legend’s voice.</em></h3><p>Lu produced “In Time” for <em>Amends</em>, a record built around Chester Bennington’s earliest vocals. It climbed to #9 on Billboard’s Top Rock Albums chart.</p></a>
-        <a class="card" href="/credits/"><span class="num">STORYSIDE:B · 2008</span><h3>A song radio <em>couldn’t stop playing.</em></h3><p>As frontman of Gotee Records’ StorySide:B, Lu co-wrote “Be Still,” which BMI named one of the five most-played songs on Christian radio in 2008.</p></a>
+        <a class="card" href="/credits/#songs"><span class="num">STARSET · 8 SONGS</span><h3>Eight songs with <em>STARSET.</em></h3><p>Rubino worked on eight tracks by the Columbus, Ohio, hard-rock act, among them “Trials,” “Manifest,” “Echo” and “Faultline.”</p></a>
+        <a class="card" href="/credits/"><span class="num">RED · 2023</span><h3>Co-writing for <em>RED.</em></h3><p>He co-wrote “Still Bleeding,” where he also plays bass, and “Your Devil Is a Ghost” for <em>Rated R</em> (2023), the eighth studio album from the Grammy-nominated Nashville band.</p></a>
+        <a class="card" href="/credits/"><span class="num">GREY DAZE · 2020</span><h3>Producer, Grey Daze’s <em>“In Time.”</em></h3><p>Rubino produced “In Time” for <em>Amends</em> (2020), the Loma Vista album that rebuilt Chester Bennington’s pre-Linkin Park band around his original vocals. It reached No. 9 on Billboard’s Top Rock Albums chart.</p></a>
+        <a class="card" href="/credits/"><span class="num">STORYSIDE:B · 2008</span><h3>“Be Still” and <em>the BMI list.</em></h3><p>As frontman of Gotee Records act StorySide:B, he co-wrote “Be Still,” which BMI counted among the five most-played songs on Christian radio in 2008.</p></a>
       </div>
-      <p class="proof__more"><a href="/credits/">See the full credits list →</a></p>
+      <p class="proof__more"><a href="/credits/">Full credits →</a></p>
     </div>
   </section>
 
@@ -133,15 +133,15 @@ const schema = [{
       <div class="grid split">
         <div>
           <p class="eyebrow">Full-song production</p>
-          <h2>One producer. One vision. <em>First chord to final master.</em></h2>
-          <p class="lede">Most studios rent you a room and a clock. The Fish Tank makes records. Lu writes with you, arranges, plays, engineers, mixes and masters, so your song never gets passed down an assembly line or loses the spark that made it yours.</p>
+          <h2>One producer, from the demo <em>to the final master.</em></h2>
+          <p class="lede">Most studios sell time. Rubino delivers finished records. He writes, arranges, plays the instruments, programs, engineers, mixes and masters, so a song keeps the same set of ears from the first rough take to release.</p>
           <a href="/song-production/" class="btn btn--ghost">How production works →</a>
         </div>
         <ol class="steps">
-          <li><span>01</span><div><h3>Find the heartbeat</h3><p>We pull your song apart and find what makes it matter: the structure, key, tempo and lyric, and the records it has to stand beside.</p></div></li>
-          <li><span>02</span><div><h3>Draw the map</h3><p>Every part is planned before the red light ever glows. Arrangement, instrumentation and vocal approach are locked in, with no wasted takes and no guesswork.</p></div></li>
-          <li><span>03</span><div><h3>Roll tape</h3><p>Vocals, guitars, bass and drums pour through an SSL Origin, a FLEA U47 and a rack of vintage-voiced outboard that adds the warmth you can feel in your chest.</p></div></li>
-          <li><span>04</span><div><h3>Make it hit</h3><p>Mixed wide, deep and punchy, then mastered to stand toe-to-toe with anything on streaming and radio.</p></div></li>
+          <li><span>01</span><div><h3>The song</h3><p>Structure, key, tempo and lyric are tested against the records the artist wants to stand beside.</p></div></li>
+          <li><span>02</span><div><h3>Pre-production</h3><p>Arrangement, instrumentation and vocal approach are settled before tracking, so session time goes to performances, not decisions.</p></div></li>
+          <li><span>03</span><div><h3>Tracking</h3><p>Vocals, guitars, bass and drums run through an SSL Origin console, a FLEA U47 and outboard from Shadow Hills, API and Empirical Labs.</p></div></li>
+          <li><span>04</span><div><h3>Mix and master</h3><p>Finished in-house and delivered ready for streaming and radio.</p></div></li>
         </ol>
       </div>
     </div>
@@ -152,17 +152,17 @@ const schema = [{
     <div class="wrap">
       <div class="listen__head">
         <div>
-          <p class="eyebrow">Turn it up</p>
-          <h2>Straight out of <em>the tank.</em></h2>
+          <p class="eyebrow">Listen</p>
+          <h2>Selected work <em>from the studio.</em></h2>
         </div>
         <a href={b.social.soundcloud} target="_blank" rel="noopener" class="btn btn--ghost">More on SoundCloud ↗</a>
       </div>
       <TrackList client:visible tracks={tracks.slice(0, 6)} />
       <div class="grid split sp-head">
         <div>
-          <p class="eyebrow">Hear the credits · tap to play</p>
-          <h3 class="sp-title">Platinum Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and more.</em></h3>
-          <p>The headline songs Lu has had a hand in as a writer, player or producer, right here on Spotify. The full playlist has 95.</p>
+          <p class="eyebrow">Credits on Spotify · tap to play</p>
+          <h3 class="sp-title">Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and more.</em></h3>
+          <p>Nine of the 95 songs Rubino has worked on as a writer, player or producer. Tap a title to play it here.</p>
           <a href="/credits/#songs" class="btn btn--ghost">All 95 songs →</a>
         </div>
         <SpotifyTracks client:visible tracks={featured} />
@@ -173,15 +173,15 @@ const schema = [{
   <!-- SERVICES -->
   <section class="section section--alt">
     <div class="wrap">
-      <p class="eyebrow">What we do</p>
-      <h2>Everything a record needs, <em>under one roof.</em></h2>
+      <p class="eyebrow">Services</p>
+      <h2>Every stage of a record, <em>under one roof.</em></h2>
       <div class="grid grid-3 svc">
-        <a class="card" href="/song-production/"><span class="num">01</span><h3>Song Production</h3><p>The full ride. Your song is written, arranged, performed and produced until it sounds like it was always meant to exist.</p></a>
-        <a class="card" href="/services/#recording"><span class="num">02</span><h3>Recording</h3><p>Up to 96 tracks of high-definition detail through an SSL Origin, so every breath, string squeak and cymbal shimmer is caught.</p></a>
-        <a class="card" href="/services/#mixing"><span class="num">03</span><h3>Mixing & Mastering</h3><p>Mixes where every part has room to breathe, and masters that are full, warm and loud enough to stand next to anything.</p></a>
-        <a class="card" href="/film-tv-scoring/"><span class="num">04</span><h3>Film & TV Scoring</h3><p>Original score composed to picture, music that tells the audience how to feel before they know why.</p></a>
-        <a class="card" href="/commercial-music/"><span class="num">05</span><h3>Commercial Music</h3><p>Custom music for TV and radio spots that makes a brand impossible to forget.</p></a>
-        <a class="card" href="/services/#arrangement"><span class="num">06</span><h3>Arrangement & Coaching</h3><p>Sweeping symphonic arrangements, plus vocal and instrument coaching that pulls out your best take.</p></a>
+        <a class="card" href="/song-production/"><span class="num">01</span><h3>Song Production</h3><p>Co-writing, arranging, performing and producing complete songs for artists and songwriters.</p></a>
+        <a class="card" href="/services/#recording"><span class="num">02</span><h3>Recording</h3><p>High-resolution multitrack recording, up to 96 tracks, through an SSL Origin console.</p></a>
+        <a class="card" href="/services/#mixing"><span class="num">03</span><h3>Mixing & Mastering</h3><p>Mixes with space and impact, and masters that hold up next to commercial releases.</p></a>
+        <a class="card" href="/film-tv-scoring/"><span class="num">04</span><h3>Film & TV Scoring</h3><p>Original music composed and recorded to picture for television, film and documentary.</p></a>
+        <a class="card" href="/commercial-music/"><span class="num">05</span><h3>Commercial Music</h3><p>Custom music for TV and radio campaigns, written to the brief.</p></a>
+        <a class="card" href="/services/#arrangement"><span class="num">06</span><h3>Arrangement & Coaching</h3><p>Orchestral arrangements, plus vocal and instrument coaching during sessions.</p></a>
       </div>
     </div>
   </section>
@@ -192,10 +192,10 @@ const schema = [{
       <div class="photo">Photo: Lu at the SSL (to shoot)</div>
       <div>
         <p class="eyebrow">The producer</p>
-        <h2>Lucio Rubino: <em>singer, writer, player, producer.</em></h2>
-        <p>Lu has lived every side of this business. He’s held down the bass on tour for A Flock of Seagulls, signed with EMI, fronted StorySide:B on Gotee Records and played on Paramore’s platinum debut. He’s toured Europe and written with RED, and produced for jazz-fusion legend Larry Coryell. Since {b.founded}, he’s poured all of it into the records made at The Fish Tank.</p>
-        <p>That’s who’s in the chair when your red light glows: a player’s feel, a songwriter’s instincts and a producer who knows what it takes for a song to survive the big leagues. His credits run from St. Augustine straight to Nashville.</p>
-        <a href="/lucio-rubino/" class="btn btn--ghost">Read Lu's story →</a>
+        <h2>Lucio Rubino, <em>three decades in.</em></h2>
+        <p>Rubino’s first tour came in 1998, playing bass for A Flock of Seagulls. Since then he has signed to EMI as a member of Monkey the Fish, fronted StorySide:B on Gotee Records, played on Paramore’s Platinum debut, toured Europe with RED and produced for jazz guitarist Larry Coryell. He opened The Fish Tank in {b.founded}.</p>
+        <p>He plays nearly every instrument heard on a modern record, from guitars, bass and keys to drums, and he is as fluent in programming and sound design as he is behind a console. The through line is the song, and his credits run from St. Augustine to Nashville.</p>
+        <a href="/lucio-rubino/" class="btn btn--ghost">Full bio →</a>
       </div>
     </div>
   </section>
@@ -204,9 +204,9 @@ const schema = [{
   <section class="sanct">
     <div class="photo photo--wide sanct__img">The deck · St. Augustine marsh at golden hour (photo coming)</div>
     <div class="wrap sanct__copy">
-      <p class="eyebrow">The sanctuary</p>
-      <h2>Not a box in a warehouse. <em>A view of the marsh.</em></h2>
-      <p class="lede">Down a private drive, up above the St. Augustine marsh, The Fish Tank is a place where the outside world falls away. Step out onto the massive deck between takes, let the song breathe, then walk back in and capture the take of your life.</p>
+      <p class="eyebrow">The studio</p>
+      <h2>An elevated room <em>above the marsh.</em></h2>
+      <p class="lede">The Fish Tank sits at the end of a private drive in St. Augustine, Fla., with a wide view of the marsh and a large deck where artists step out between takes. It is built for long, unhurried sessions, the kind that are hard to find in a rented room on the clock.</p>
       <a href="/studio/" class="btn btn--ghost">Tour the studio →</a>
     </div>
   </section>
@@ -214,8 +214,8 @@ const schema = [{
   <!-- TESTIMONIALS -->
   <section class="section section--alt">
     <div class="wrap">
-      <p class="eyebrow">Word from the room</p>
-      <h2>Don’t take <em>our word for it.</em></h2>
+      <p class="eyebrow">Testimonials</p>
+      <h2>What artists say <em>about the room.</em></h2>
       <Testimonials limit={2} />
       <p class="proof__more"><a href="/testimonials/">More testimonials →</a></p>
     </div>
@@ -226,9 +226,9 @@ const schema = [{
     <div class="wrap grid split">
       <Faq items={faq} />
       <div class="loc card">
-        <p class="eyebrow">Find the tank</p>
+        <p class="eyebrow">Location</p>
         <h3>{b.street}<br />{b.city}, {b.region} {b.postal}</h3>
-        <p>Down a private drive and up above the St. Augustine marsh, with a massive deck, a view that goes on for miles and the glow of tubes inside. Sessions by appointment.</p>
+        <p>At the end of a private drive overlooking the St. Augustine marsh, about 45 minutes south of Jacksonville. Sessions by appointment.</p>
         <p><a href={`tel:${b.phoneE164}`}>{b.phone}</a><br /><a href={`mailto:${b.email}`}>{b.email}</a></p>
         <a class="btn btn--ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=24+Althea+Street+St+Augustine+FL+32084">Open in Maps ↗</a>
       </div>

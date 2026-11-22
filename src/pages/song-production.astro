@@ -7,9 +7,9 @@ import Testimonials from '../components/Testimonials.astro';
 import { tracks, business as b } from '../data/site';
 
 const faq = [
-  { q: 'Can I come in with just a voice memo?', a: 'Yes. Plenty of Fish Tank records started as a phone recording. Lu helps shape structure, melody, lyric and arrangement before anything is tracked.' },
-  { q: 'Who plays the instruments?', a: 'Lucio plays bass, electric and acoustic guitar and more, and the studio is stocked with basses, guitars, a Dobro, banjo, upright bass and a Medicine Man drum kit. Bring your own band if you have one; it’s your call.' },
-  { q: 'Do you help with songwriting?', a: 'Yes. Lu is a co-writer on RED’s Rated R and co-wrote StorySide:B’s BMI-recognized “Be Still.” Co-writing is part of full-song production whenever the song calls for it.' },
+  { q: 'Can I come in with just a voice memo?', a: 'Yes. Many Fish Tank records started as phone recordings. Rubino helps shape structure, melody, lyric and arrangement before anything is tracked.' },
+  { q: 'Who plays the instruments?', a: 'Rubino is a multi-instrumentalist: guitars, bass, keys and drums, plus programming and sound design. The studio also keeps basses, guitars, a Dobro, a banjo, an upright bass and a Medicine Man drum kit on hand. Artists with a band are welcome to bring it.' },
+  { q: 'Do you help with songwriting?', a: 'Yes. Rubino is a co-writer on RED’s Rated R and co-wrote StorySide:B’s BMI-recognized “Be Still.” Co-writing is part of full-song production whenever the song calls for it.' },
   { q: 'What do I get at the end?', a: 'Mixed and mastered tracks ready for streaming and radio. Ask about instrumentals and alternate versions for your project.' },
 ];
 const schema = [{
@@ -24,27 +24,27 @@ const schema = [{
 ---
 <Base
   title="Full-Song Music Production in St. Augustine, FL | The Fish Tank"
-  description="Turn a demo into a finished record. Songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino (Paramore, RED, Grey Daze)."
+  description="From demo to finished record. Songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino (Paramore, RED, Grey Daze)."
   schema={schema}
   crumbs={[{ name: 'Song Production', path: '/song-production/' }]}
 >
-  <PageHero eyebrow="Our work · Song production" title="From a voice memo <em>to a record that hits.</em>"
-    lede="This is what The Fish Tank was built for. Lu takes a song the whole distance: the writing and arrangement, the players, the sound, the mix and the master, with one producer and one vision. He won’t settle until the song sounds as big as it feels in your head.">
+  <PageHero eyebrow="Our work · Song production" title="Full-song production, <em>demo to master.</em>"
+    lede="Full-song production is The Fish Tank’s core business. Rubino takes a song from rough demo to finished master: the writing and arrangement, the players, the sound, the mix. One producer stays on the record from start to finish.">
     <div style="margin-top:2rem"><a href="/contact/" class="btn">Talk about your songs →</a></div>
   </PageHero>
 
   <section class="section">
     <div class="wrap grid split">
       <div class="prose">
-        <h2>Why one producer <em>beats a dozen hours.</em></h2>
-        <p>Booking studio time gets you an engineer and a clock. Full-song production gets you a collaborator who has <strong>played on a platinum record</strong>, <strong>written with a Grammy-nominated band</strong> and <strong>fronted a label act</strong>, and who fights for your song like it’s his own.</p>
-        <p>Lu has made pop-punk, arena rock, heart-on-sleeve songwriter records, Christian radio singles and jazz fusion. He’s heard what separates a good song from the one that gets stuck in a million heads. He knows when a chorus needs to explode, when a key needs to move and when the bravest move is to strip everything away.</p>
+        <h2>Why one producer <em>instead of studio time.</em></h2>
+        <p>Booking studio time buys an engineer and a clock. Full-song production brings in a multi-instrumentalist and programmer who has <strong>played on a Platinum album</strong>, <strong>co-written with a Grammy-nominated band</strong> and <strong>fronted a label act</strong>, and who stays with the song until it is finished.</p>
+        <p>Rubino’s credits span pop-punk, hard rock, singer-songwriter records, Christian radio and jazz fusion. That range shows up in the decisions: when a chorus needs more lift, when a song wants a different key, and when the right call is to take parts away.</p>
         <h3>What's included</h3>
         <ul>
           <li>Song consultation, structure and co-writing</li>
           <li>Pre-production and arrangement</li>
           <li>Vocal production and coaching</li>
-          <li>Bass, guitars and other instruments performed by Lu</li>
+          <li>Guitars, bass, keys, drums and programming performed by Rubino</li>
           <li>Symphonic and string arrangements when the song wants them</li>
           <li>Tracking through the SSL Origin and FLEA U47</li>
           <li>Editing, mixing and mastering</li>
@@ -57,7 +57,7 @@ const schema = [{
   <section class="section section--alt">
     <div class="wrap">
       <p class="eyebrow">Listen</p>
-      <h2>Pressed play <em>in the tank.</em></h2>
+      <h2>Selected productions <em>from the studio.</em></h2>
       <TrackList client:visible tracks={tracks} />
     </div>
   </section>
