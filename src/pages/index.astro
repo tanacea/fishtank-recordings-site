@@ -39,6 +39,7 @@ const schema = [{
 >
   <!-- HERO -->
   <section class="hero">
+    <div class="hero__bg" role="img" aria-label="The Fish Tank control room: SSL console, monitors and a wall of guitars"></div>
     <div class="wrap hero__grid">
       <div>
         <p class="eyebrow">Recording studio · St. Augustine, Fla. · Since {b.founded}</p>
@@ -202,7 +203,7 @@ const schema = [{
 
   <!-- SANCTUARY -->
   <section class="sanct">
-    <div class="sanct__img" role="img" aria-label="The Fish Tank control room, with guitars lining the walls" style="background-image: linear-gradient(180deg, rgba(14,12,10,.15), rgba(14,12,10,.9) 82%), url(/images/control-room-wide.webp)"></div>
+    <div class="sanct__img" role="img" aria-label="The Fish Tank live room, with amps, a drum kit and a window to the outdoors" style="background-image: linear-gradient(180deg, rgba(14,12,10,.15), rgba(14,12,10,.9) 82%), url(/images/live-room-wide.webp)"></div>
     <div class="wrap sanct__copy">
       <p class="eyebrow">The studio</p>
       <h2>An elevated room <em>above the marsh.</em></h2>
@@ -237,10 +238,21 @@ const schema = [{
 </Base>
 
 <style>
-  .hero { padding-top: clamp(3.5rem, 8vw, 6.5rem); position: relative; overflow: hidden;
+  .hero { padding-top: clamp(3.5rem, 8vw, 6.5rem); position: relative; overflow: hidden; isolation: isolate; }
+  /* studio photo behind the hero, toned down so the copy stays readable */
+  .hero__bg { position: absolute; inset: 0; z-index: -2;
+    background: url(/images/hero-studio.webp) center 42% / cover no-repeat;
+    opacity: .72; filter: saturate(.9) contrast(1.05); transform: scale(1.04);
+    animation: drift 30s ease-in-out infinite alternate; }
+  .hero::before { content: ''; position: absolute; inset: 0; z-index: -1;
     background:
-      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(240,164,58,.16), transparent 70%),
-      radial-gradient(ellipse 40% 50% at 10% 100%, rgba(111,179,168,.10), transparent 70%); }
+      linear-gradient(90deg, rgba(14,12,10,.93) 0%, rgba(14,12,10,.84) 45%, rgba(14,12,10,.5) 72%, rgba(14,12,10,.55) 100%),
+      linear-gradient(180deg, rgba(14,12,10,.35) 0%, transparent 30%, rgba(14,12,10,.9) 100%),
+      radial-gradient(ellipse 45% 55% at 80% 35%, rgba(240,164,58,.14), transparent 70%); }
+  @keyframes drift { to { transform: scale(1.1) translate(-1.5%, -1%); } }
+  @media (max-width: 959px) {
+    .hero::before { background: linear-gradient(180deg, rgba(14,12,10,.62) 0%, rgba(14,12,10,.86) 45%, rgba(14,12,10,.95) 100%); }
+  }
   .hero__grid { display: grid; gap: 3rem; align-items: center; padding-bottom: 4.5rem; }
   @media (min-width: 960px) { .hero__grid { grid-template-columns: 1.35fr .65fr; } }
   .hero h1 { max-width: 15ch; }
