@@ -1,0 +1,26 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'Do you record podcasts for businesses?', a: 'Yes. Interview and solo shows, recorded on studio microphones, then edited and mixed for release.' },
+  { q: 'Can you record audiobook narration?', a: 'Yes. Narration is recorded in the vocal booth and edited for the distribution platform’s requirements.' },
+  { q: 'Can you add music?', a: 'Yes. Rubino can write and record original intro music, beds and stings for the show or ad.' },
+];
+---
+<ServicePage
+  title="Podcast & Voice-Over Studio, St. Augustine | The Fish Tank Recordings"
+  description="Podcast recording and editing, voice-over for ads and video, and audiobook narration in St. Augustine, FL, on a FLEA U47 Next vocal chain, with original music on request."
+  path="/podcast-voiceover/" crumb="Podcast and voice-over" eyebrow="Podcast · Voice-over · Audiobooks"
+  h1="Spoken word, <em>recorded properly.</em>"
+  lede="The vocal chain built for singers works for speakers too. Podcasts, voice-over for ads and video, audiobook narration and oral histories are recorded in the vocal booth on a FLEA U47 Next, then edited and mixed for release."
+  service="Podcast, voice-over and audiobook recording" formType="Podcast or audiobook"
+  faq={faq} faqTitle="Podcast and voice-over questions"
+  related={[{ href: '/commercial-music/', label: 'Commercial music' }, { href: '/services/', label: 'All services' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Podcasts</h3><p>Recording, editing and mixing for interview and solo shows, with original theme music on request.</p></article>
+      <article class="card"><h3>Voice-over</h3><p>Ads, explainers and video narration for St. Augustine and Jacksonville businesses and agencies.</p></article>
+      <article class="card"><h3>Audiobooks and oral history</h3><p>Long-form narration and recorded histories, captured cleanly and edited to spec.</p></article>
+    </div>
+  </section>
+</ServicePage>

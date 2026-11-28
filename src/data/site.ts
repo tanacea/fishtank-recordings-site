@@ -60,7 +60,7 @@ export const nav = [
   { label: 'Credits', href: '/credits/' },
   { label: 'Lucio', href: '/lucio-rubino/' },
   { label: 'The Studio', href: '/studio/' },
-  { label: 'Gear', href: '/gear/' },
+  { label: 'Touring Artists', href: '/touring-artists/' },
 ];
 
 // Verified, publishable credits. `source` = where it was confirmed.

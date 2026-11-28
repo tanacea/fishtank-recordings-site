@@ -1,0 +1,27 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'What is a listening session?', a: 'A private playback of a finished record for the people who matter to it: the band, the team, friends, family or press, heard on studio monitors instead of earbuds.' },
+  { q: 'Can we perform?', a: 'Yes. Small acoustic showcases can be arranged around the playback.' },
+  { q: 'How many guests?', a: 'It depends on the event. Send the details and Lucio will confirm what works.' },
+];
+---
+<ServicePage
+  title="Listening Sessions & Showcases | The Fish Tank Recordings"
+  description="Host a private listening session or small showcase for your new record at The Fish Tank Recordings, on studio monitors and the deck over the St. Augustine marsh."
+  path="/listening-sessions/" crumb="Listening sessions" eyebrow="Listening sessions and showcases"
+  h1="Play the record <em>for the people who matter.</em>"
+  lede="A record deserves a proper first listen. Host the band, your team, family or local press for a private playback on the studio monitors, with an acoustic set on the deck if you want one."
+  service="Listening sessions and release showcases" formType="Listening session or showcase"
+  formHeading="Plan a <em>listening session.</em>"
+  faq={faq} faqTitle="Listening session questions"
+  related={[{ href: '/studio/', label: 'The studio' }, { href: '/session-video/', label: 'Session video' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Release playback</h3><p>Hear the finished record top to bottom, loud and on monitors, the way it was mixed.</p></article>
+      <article class="card"><h3>Deck showcase</h3><p>A short acoustic set on the deck over the marsh for an invited audience.</p></article>
+      <article class="card"><h3>Team and press</h3><p>Play it for managers, labels, local radio and writers in a room built for listening.</p></article>
+    </div>
+  </section>
+</ServicePage>

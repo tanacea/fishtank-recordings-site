@@ -5,12 +5,19 @@
 import { reactive, ref, computed } from 'vue';
 import { formEndpoint as endpoint } from '../data/site';
 
+const props = defineProps<{ defaultType?: string; source?: string }>();
+
 const projectTypes = [
   'Full song production',
   'Artist assessment',
   'Recording session',
+  'Songwriter session',
   'Mixing',
   'Mastering',
+  'Session video and photos',
+  'Listening session or showcase',
+  'Podcast or audiobook',
+  'Help finding a place to stay',
   'Film / TV scoring',
   'Commercial / ad music',
   'Voice-over',
@@ -18,7 +25,7 @@ const projectTypes = [
 ];
 
 const f = reactive({
-  name: '', email: '', phone: '', type: 'Full song production', songs: '', timeline: '', links: '', message: '', _honey: '',
+  name: '', email: '', phone: '', type: props.defaultType || 'Full song production', songs: '', timeline: '', links: '', message: '', _honey: '',
 });
 const state = ref<'idle' | 'sending' | 'sent' | 'error'>('idle');
 const valid = computed(() => f.name.trim() && /.+@.+\..+/.test(f.email) && f.message.trim().length > 9);
@@ -26,7 +33,7 @@ const valid = computed(() => f.name.trim() && /.+@.+\..+/.test(f.email) && f.mes
 async function submit() {
   if (!valid.value || f._honey) return;
   state.value = 'sending';
-  const body = JSON.stringify({ ...f, _subject: `New project inquiry: ${f.name}`, _template: 'table' });
+  const body = JSON.stringify({ ...f, _subject: `New inquiry (${f.type}): ${f.name}`, page: props.source || (typeof location !== 'undefined' ? location.pathname : ''), _template: 'table' });
   try {
     const res = await fetch(endpoint, {
       method: 'POST',

@@ -1,0 +1,26 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'Is video included with every session?', a: 'No. Session video and photos are available on request and booked alongside a recording or rehearsal session.' },
+  { q: 'Who shoots it?', a: 'The studio coordinates videographers and photographers for the day, so you deal with one booking.' },
+  { q: 'What do I get?', a: 'That is set when you book: typically a live performance clip, short vertical cuts for social media and a set of stills.' },
+];
+---
+<ServicePage
+  title="Session Video & Photos, St. Augustine | The Fish Tank Recordings"
+  description="Add a videographer and photographer to your session: live performance clips, vertical cuts for Reels, TikTok and Shorts, and stills. Available on request."
+  path="/session-video/" crumb="Session video" eyebrow="Session video and photos · On request"
+  h1="Capture the session <em>for the feed.</em>"
+  lede="Fans want to see the song being made. On request, the studio books videographers and photographers for your session and coordinates the day, so the record and the content get made at the same time."
+  service="Live session video and photography" formType="Session video and photos"
+  faq={faq} faqTitle="Session video questions"
+  related={[{ href: '/song-production/', label: 'Full-song production' }, { href: '/touring-artists/', label: 'Touring artists' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Live performance</h3><p>A multi-camera take of the song in the live room, mixed from the session audio.</p></article>
+      <article class="card"><h3>Short-form cuts</h3><p>Vertical clips sized for Instagram Reels, TikTok and YouTube Shorts, from the same day.</p></article>
+      <article class="card"><h3>Stills</h3><p>Photos in the control room, the live room and on the deck over the marsh, for press and release art.</p></article>
+    </div>
+  </section>
+</ServicePage>

@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import TouringForm from '../components/TouringForm.vue';
+import Faq from '../components/Faq.astro';
+import { business as b } from '../data/site';
+
+const faq = [
+  { q: 'How far is the studio from the St. Augustine Amphitheatre?', a: 'About 15 minutes by car, roughly five miles.' },
+  { q: 'Is there parking for a bus or trailer?', a: 'Yes. There is plenty of parking for buses, vans and trailers.' },
+  { q: 'Can the full band rehearse?', a: 'Yes. The live room is set up for full-band rehearsal, with personal monitor mixes for each player.' },
+  { q: 'Can we record while we’re here?', a: 'Yes. Cut a song, a B-side or a session for social media, with Lucio Rubino producing or engineering. He can also play on it.' },
+  { q: 'Is it private?', a: 'The studio sits at the end of a private drive, out of sight, and every booking is arranged directly with Lucio. A confidentiality agreement is available on request.' },
+  { q: 'Can you help with a place to stay?', a: 'Yes. There are no rooms at the studio, but the team grew up in St. Augustine and will match your party with the right stay, from historic inns to beach houses.' },
+  { q: 'How is it priced?', a: 'Rates are quoted directly to tour and artist managers. Send the date and what you need, and Lucio will reply.' },
+];
+const schema = [{
+  '@context': 'https://schema.org', '@type': 'Service', name: 'Private studio for touring artists',
+  serviceType: 'Rehearsal and recording studio for touring artists',
+  description: 'A private rehearsal and recording studio about 15 minutes from the St. Augustine Amphitheatre, with bus parking, a full-band live room and a marsh-view deck.',
+  provider: { '@id': `${b.url}/#studio` }, areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'Ponte Vedra Beach, FL'], url: `${b.url}/touring-artists/`,
+}];
+---
+<Base
+  title="Studio for Touring Artists, St. Augustine | The Fish Tank Recordings"
+  description="Playing the St. Augustine Amphitheatre? A private studio 15 minutes away: full-band rehearsal, recording with Lucio Rubino, bus parking and a marsh-view deck."
+  schema={schema}
+  crumbs={[{ name: 'Touring artists', path: '/touring-artists/' }]}
+>
+  <PageHero eyebrow="For touring artists" title="Playing the Amp? <em>Spend the off day here.</em>"
+    lede="The St. Augustine Amphitheatre ranked No. 1 among U.S. amphitheaters for tickets sold in Pollstar’s 2026 mid-year report, and it puts headliners in this small coastal city about 30 nights a season. The Fish Tank Recordings is a private room 15 minutes away: rehearse, unwind and, if the mood strikes, record.">
+    <div class="th__ctas">
+      <a href="#inquire" class="btn">Check a date →</a>
+      <a href="/touring-artists/one-sheet.pdf" class="btn btn--ghost" download>Download the one-sheet</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap">
+      <ul class="facts">
+        <li><strong>15 min</strong><span>from the St. Augustine Amphitheatre</span></li>
+        <li><strong>Bus parking</strong><span>room for buses, vans and trailers</span></li>
+        <li><strong>Full band</strong><span>live-room rehearsal with personal monitor mixes</span></li>
+        <li><strong>Private drive</strong><span>out of sight, booked directly with Lucio</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap grid grid-3 rrr">
+      <article class="card">
+        <span class="num">01 · Rehearse</span>
+        <h3>Run the set</h3>
+        <p>Work up a new song, rehearse a guest spot or tighten the encore in a live room built for a full band, with an SSL Origin console in the next room if you want to hear it back.</p>
+      </article>
+      <article class="card">
+        <span class="num">02 · Relax</span>
+        <h3>Take the day off</h3>
+        <p>A large deck over the St. Augustine marsh, coffee on and nobody around. Away from the venue, the hotel lobby and the bus.</p>
+      </article>
+      <article class="card">
+        <span class="num">03 · Record</span>
+        <h3>Cut it while it’s fresh</h3>
+        <p>Record the song you wrote on the road with Lucio Rubino, a multi-instrumentalist and producer who played on Paramore’s Platinum debut and co-wrote for RED. Session video and photos on request.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="prose">
+        <h2>Stay somewhere <em>worth the trip.</em></h2>
+        <p>There are no rooms at the studio. Instead, the team, who grew up in St. Augustine, will find your party the right place to stay, from historic inns in the oldest city to beach houses on Anastasia Island. <a href="/stay-in-st-augustine/">How the stay concierge works →</a></p>
+        <h2>Make it <em>content.</em></h2>
+        <p>Videographers and photographers can be booked for the session on request, for live clips, vertical cuts for social media and stills. <a href="/session-video/">Session video →</a></p>
+      </div>
+      <img class="img" src="/images/live-room.webp" alt="The live room at The Fish Tank Recordings, set up for a band" width="800" height="1000" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <section class="section section--alt" id="inquire">
+    <div class="wrap grid split th__form">
+      <div>
+        <p class="eyebrow">Tour and artist managers</p>
+        <h2>Check a date <em>with Lucio.</em></h2>
+        <p>Send the show date and what would help. Rates are quoted directly. For anything close, call or text <a href={`tel:${b.phoneE164}`}>{b.phone}</a>.</p>
+        <p><a href={`mailto:${b.email}?subject=Touring%20artist%20session`}>{b.email}</a></p>
+      </div>
+      <div class="card"><TouringForm client:visible /></div>
+    </div>
+  </section>
+
+  <section class="section"><div class="wrap"><Faq title="Touring questions" items={faq} /></div></section>
+</Base>
+
+<style>
+  .th__ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (min-width: 760px) { .facts { grid-template-columns: repeat(4, 1fr); } }
+  .facts li { background: var(--ink); padding: 1.6rem 1.4rem; display: grid; gap: .3rem; }
+  .facts strong { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--amber); }
+  .facts span { color: var(--cream-dim); font-size: .95rem; }
+  .rrr .num { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
+  .th__form { align-items: start; }
+</style>

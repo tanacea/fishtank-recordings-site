@@ -22,7 +22,8 @@ const redirects = {
   '/projects': '/song-production/',
   '/book': '/contact/',
   '/gift': '/gift-certificates/',
-  '/touring': '/studio/#touring-artists',
+  '/touring': '/touring-artists/',
+  '/stay': '/stay-in-st-augustine/',
   '/gifts': '/gift-certificates/',
 };
 

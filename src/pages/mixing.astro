@@ -1,0 +1,35 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'Can I send my tracks from anywhere?', a: 'Yes. Most mixing projects arrive as files. Upload the multitracks or stems, add a reference track or two, and Rubino mixes from St. Augustine.' },
+  { q: 'How should I prepare my files?', a: 'Export every track as a WAV file from the same start point, at the session’s sample rate, with no processing on the master bus. Name each file by instrument.' },
+  { q: 'Do I get a say in the mix?', a: 'Yes. You hear the mix, send notes and hear the changes before anything is final.' },
+  { q: 'Can you master it too?', a: 'Yes. Mixing and mastering can be booked together, or the mix can go to your own mastering engineer.' },
+];
+---
+<ServicePage
+  title="Mixing, St. Augustine & Online | The Fish Tank Recordings"
+  description="Send your tracks from anywhere. Lucio Rubino mixes through an SSL Origin console and analog outboard for records with space, weight and impact."
+  path="/mixing/" crumb="Mixing" eyebrow="Mixing · In studio or online"
+  h1="Mixing for the record <em>you already made.</em>"
+  lede="You tracked it at home, in another studio or on the road. Rubino mixes it so every part has its own space and the record lands as a whole, with analog color from the console and outboard at The Fish Tank Recordings."
+  service="Music mixing" formType="Mixing"
+  faq={faq} faqTitle="Mixing questions"
+  related={[{ href: '/mastering/', label: 'Mastering' }, { href: '/song-production/', label: 'Full-song production' }]}
+>
+  <section class="section">
+    <div class="wrap grid split">
+      <div class="prose">
+        <h2>How a mix <em>comes together.</em></h2>
+        <ol>
+          <li><strong>Send the tracks</strong> and one or two reference songs you love the sound of.</li>
+          <li><strong>Rubino mixes</strong> through the SSL Origin console with Shadow Hills, Elysia, API and Empirical Labs outboard.</li>
+          <li><strong>You give notes</strong> and hear the revisions.</li>
+          <li><strong>You get the final mix,</strong> ready for mastering or release.</li>
+        </ol>
+        <p>Quick turnarounds. Singer-songwriter, rock, pop, country and metal.</p>
+      </div>
+      <img class="img" src="/images/outboard-wide.webp" alt="Outboard processing in The Fish Tank Recordings control room" width="1600" height="899" loading="lazy" decoding="async" />
+    </div>
+  </section>
+</ServicePage>

@@ -1,0 +1,28 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'Can we stay at the studio?', a: 'No. The studio has no guest rooms, but the stay concierge will find the right place nearby.' },
+  { q: 'How does the stay concierge work?', a: 'Send the dates, party size and the kind of place you like, and the team comes back with suggestions that fit the session.' },
+  { q: 'Can you arrange stays for a whole band and crew?', a: 'Yes. Tell us the party size, dates and vehicles, and the options will fit the group.' },
+];
+---
+<ServicePage
+  title="Where to Stay in St. Augustine | The Fish Tank Recordings"
+  description="Recording or rehearsing at The Fish Tank Recordings? The team grew up in St. Augustine and will match you with a special stay, from historic inns to beach houses."
+  path="/stay-in-st-augustine/" crumb="Stay in St. Augustine" eyebrow="Stay concierge"
+  h1="Stay somewhere <em>worth the trip.</em>"
+  lede="There are no rooms at the studio, and you won’t miss them. Rubino has lived in St. Augustine since 1988, and the team will match fly-in and touring artists with the right stay: a historic inn in the nation’s oldest city, a beach house on Anastasia Island or a quiet place on the marsh."
+  service="Lodging concierge for visiting artists" formType="Help finding a place to stay"
+  formHeading="Tell us <em>who’s coming.</em>"
+  formLede="Send the dates, party size and the kind of place you like. Lucio will come back with options that fit the session."
+  faq={faq} faqTitle="Stay questions"
+  related={[{ href: '/touring-artists/', label: 'Touring artists' }, { href: '/studio/', label: 'The studio' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Historic district</h3><p>Inns and guesthouses within walking distance of the old city’s restaurants and music venues.</p></article>
+      <article class="card"><h3>Beach</h3><p>Houses on Anastasia Island with room for a band, a short drive from the Amphitheatre.</p></article>
+      <article class="card"><h3>Quiet</h3><p>Private rentals on the water for artists who came to write, rest and record.</p></article>
+    </div>
+  </section>
+</ServicePage>

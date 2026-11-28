@@ -1,0 +1,62 @@
+---
+// Shared layout for single-service landing pages: hero + Dive In CTA,
+// page-specific sections (slot), an inquiry form preset to this service,
+// FAQ (with FAQPage schema) and Service schema.
+import Base from './Base.astro';
+import PageHero from '../components/PageHero.astro';
+import DiveInCta from '../components/DiveInCta.astro';
+import InquiryForm from '../components/InquiryForm.vue';
+import Faq from '../components/Faq.astro';
+import { business as b, packagesLine } from '../data/site';
+
+interface Props {
+  title: string; description: string; path: string; crumb: string;
+  eyebrow: string; h1: string; lede: string;
+  service: string; formType: string; formHeading?: string; formLede?: string;
+  faq?: { q: string; a: string }[]; faqTitle?: string;
+  related?: { href: string; label: string }[];
+}
+const p = Astro.props;
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: p.service,
+  serviceType: p.service,
+  description: p.description,
+  url: `${b.url}${p.path}`,
+  provider: { '@id': `${b.url}/#studio` },
+  areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'Florida', 'United States', 'Worldwide (remote)'],
+}];
+---
+<Base title={p.title} description={p.description} schema={schema} crumbs={[{ name: p.crumb, path: p.path }]}>
+  <PageHero eyebrow={p.eyebrow} title={p.h1} lede={p.lede}>
+    <div style="margin-top:2rem"><DiveInCta /></div>
+  </PageHero>
+
+  <slot />
+
+  <section class="section section--alt" id="inquire">
+    <div class="wrap grid split sp-form">
+      <div>
+        <p class="eyebrow">Get started</p>
+        <h2 set:html={p.formHeading ?? 'Tell Lucio <em>what you need.</em>'} />
+        <p>{p.formLede ?? 'Send a few details and Lucio will reply personally. Prefer to talk it through? Book a free Dive In visit, in person or on Google Meet.'}</p>
+        <p class="sp-pkg">{packagesLine}</p>
+        {p.related && p.related.length > 0 && (
+          <ul class="sp-related">{p.related.map((r) => <li><a href={r.href}>{r.label} →</a></li>)}</ul>
+        )}
+      </div>
+      <div class="card"><InquiryForm client:visible defaultType={p.formType} source={p.path} /></div>
+    </div>
+  </section>
+
+  {p.faq && p.faq.length > 0 && (
+    <section class="section"><div class="wrap"><Faq title={p.faqTitle ?? 'Questions'} items={p.faq} /></div></section>
+  )}
+</Base>
+
+<style>
+  .sp-form { align-items: start; }
+  .sp-pkg { color: var(--cream); }
+  .sp-related { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .5rem; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+</style>

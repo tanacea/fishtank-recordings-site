@@ -7,6 +7,7 @@ import Anywhere from '../components/Anywhere.astro';
 import DiveIn from '../components/DiveIn.astro';
 import DiveInCta from '../components/DiveInCta.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
+import ClientWall from '../components/ClientWall.vue';
 import { trackCount } from '../data/discography';
 import { marquee, business as b, cta, packagesLine, genresLine } from '../data/site';
 
@@ -19,6 +20,17 @@ const faq = [
   { q: 'Where is the studio?', a: `The Fish Tank Recordings is at ${b.street} in St. Augustine, Florida: an elevated studio down a private drive, overlooking the marsh, about 45 minutes from Jacksonville. Sessions are by appointment.` },
 ];
 
+const wall = [
+  { artist: 'Paramore', credit: 'Bass, All We Know Is Falling (Platinum)', track: 'Pressure', id: '7mG2RbhyzGsjpQOz568d39' },
+  { artist: 'STARSET', credit: 'Co-writer and bass, eight songs', track: 'Trials', id: '23wrmyJ1S2sjeh2dFN5P9k' },
+  { artist: 'RED', credit: 'Co-writer and bass, Rated R (2023)', track: 'Tell Me How To Say Goodbye', id: '27IJWDIdTzD5WA2VvMPE3b' },
+  { artist: 'Grey Daze', credit: 'Producer, “In Time,” Amends (2020)', track: 'In Time', id: '3VT6TJkD2V1Cwz60564IiZ' },
+  { artist: 'Larry Coryell', credit: 'Producer', track: 'Mr. Miyake', id: '6mkq4ZHYJbwEMaKRMXIG1R' },
+  { artist: 'StorySide:B', credit: 'Frontman and co-writer, “Be Still” (BMI top 5, 2008)', track: 'Be Still', id: '0AhT6ukrkBdLQ12zyXdCCS' },
+  { artist: 'Seventh Day Slumber', credit: 'Contributor', track: 'Addicted To My Pain', id: '6HLDcdg83MxJUtojRv8DD3' },
+  { artist: 'Manafest', credit: 'Contributor', track: 'Kamikaze', id: '6nmEGhSiiBqH7Ub037af0F' },
+  { artist: 'Caroline Carr', credit: 'Producer, pop', track: 'Innocent Consent', id: '464xCLSwwwMT8GWAve4cIt' },
+];
 const schema = [{
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -122,6 +134,8 @@ const schema = [{
         <a class="card" href="/credits/"><span class="num">GREY DAZE · 2020</span><h3>Producer, Grey Daze’s <em>“In Time.”</em></h3><p>Rubino produced “In Time” for <em>Amends</em> (2020), the Loma Vista album that rebuilt Chester Bennington’s pre-Linkin Park band around his original vocals. It reached No. 9 on Billboard’s Top Rock Albums chart.</p></a>
         <a class="card" href="/credits/"><span class="num">STORYSIDE:B · 2008</span><h3>“Be Still” and <em>the BMI list.</em></h3><p>As frontman of Gotee Records act StorySide:B, he co-wrote “Be Still,” which BMI counted among the five most-played songs on Christian radio in 2008.</p></a>
       </div>
+      <h3 class="wall__h">Press play on the credits.</h3>
+      <ClientWall client:visible items={wall} />
       <p class="proof__more"><a href="/credits/">Full credits →</a></p>
     </div>
   </section>
@@ -247,6 +261,7 @@ const schema = [{
   .pkg { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; justify-content: space-between; }
   .pkg__line { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--cream); max-width: 34ch; }
   .faq__cta { margin-top: 2rem; }
+  .wall__h { margin: 3.5rem 0 0; font-size: 1.4rem; }
   .giftline { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: center; padding: 1.1rem 1.4rem; border: 1px dashed var(--line); border-radius: 6px; color: var(--cream-dim); transition: border-color .2s, color .2s; }
   .giftline:hover { border-color: var(--amber); color: var(--cream); }
   .giftline strong { color: var(--amber); font-weight: 500; }

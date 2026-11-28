@@ -23,17 +23,31 @@ import { business as b } from '../data/site';
     </div>
   </section>
 
+  <section class="section section--alt" id="rooms">
+    <div class="wrap">
+      <p class="eyebrow">The rooms</p>
+      <h2>Four rooms, <em>one record.</em></h2>
+      <div class="rooms">
+        <article><img class="img" src="/images/control-room.webp" alt="The control room with the SSL Origin console" width="800" height="1000" loading="lazy" decoding="async" /><h3>The Control Room</h3><p>An SSL Origin console into Pro Tools HD, with Shadow Hills, Elysia, API, Empirical Labs and A-Designs outboard and a wall of guitars.</p></article>
+        <article><img class="img" src="/images/live-room.webp" alt="The live room with amps and drums" width="800" height="1000" loading="lazy" decoding="async" /><h3>The Live Room</h3><p>Built for a full band, with personal monitor mixes, drums, amps and a window to the outdoors. Also used for band rehearsal.</p></article>
+        <article><img class="img" src="/images/vocal-booth.webp" alt="The vocal booth" width="800" height="1000" loading="lazy" decoding="async" /><h3>The Vocal Booth</h3><p>The FLEA U47 Next and a quiet, treated booth for vocals, voice-over and narration.</p></article>
+        <article><div class="rooms__ph" role="img" aria-label="The deck over the St. Augustine marsh"><span>Photo coming</span></div><h3>The Deck</h3><p>A large deck over the marsh for breaks between takes, listening sessions and small acoustic showcases.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="section touring" id="touring-artists">
     <div class="wrap grid split">
       <div>
         <p class="eyebrow">For touring artists</p>
         <h2>Playing St. Augustine? <em>Spend the off day here.</em></h2>
-        <p class="lede">The St. Augustine Amphitheatre, named Billboard’s Top East Coast Amphitheater, has made this small coastal city a regular stop for headliners. The Fish Tank Recordings gives the artists who play it a private room in the same town: somewhere to rehearse, unwind and, if the mood strikes, record.</p>
+        <p class="lede">The St. Augustine Amphitheatre, named Billboard’s Top East Coast Amphitheater, has made this small coastal city a regular stop for headliners. The Fish Tank Recordings gives the artists who play it a private room about 15 minutes away, with parking for buses and vans: somewhere to rehearse, unwind and, if the mood strikes, record.</p>
         <ul class="touring__list">
           <li><strong>Rehearse</strong><span>Run the set or work up a new song in a live room built for a full band, with personal monitor mixes.</span></li>
           <li><strong>Relax</strong><span>A marsh-view deck at the end of a private drive, out of sight and away from venue traffic.</span></li>
           <li><strong>Record</strong><span>Cut the song you wrote on the bus while it’s fresh, with a producer who plays nearly every instrument on the record.</span></li>
         </ul>
+        <p><a class="btn" href="/touring-artists/">Touring artists: check a date →</a></p>
         <p class="touring__contact">Managers and tour staff: call or text Lucio at <a href={`tel:${b.phoneE164}`}>{b.phone}</a> or email <a href={`mailto:${b.email}?subject=Touring%20artist%20session`}>{b.email}</a>. Booked directly with Lucio.</p>
       </div>
       <img class="img" src="/images/live-room.webp" alt="The live room at The Fish Tank Recordings, set up for a band" width="800" height="1000" loading="lazy" decoding="async" />
@@ -68,6 +82,14 @@ import { business as b } from '../data/site';
 </Base>
 
 <style>
+  .rooms { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+  @media (min-width: 760px) { .rooms { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .rooms { grid-template-columns: repeat(4, 1fr); } }
+  .rooms .img, .rooms__ph { aspect-ratio: 4/5; width: 100%; }
+  .rooms__ph { border-radius: 6px; border: 1px dashed var(--line); background: radial-gradient(ellipse at 50% 30%, rgba(111,179,168,.18), transparent 70%), var(--ink); display: grid; place-items: center; }
+  .rooms__ph span { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .rooms h3 { margin: 1rem 0 .4rem; font-size: 1.25rem; }
+  .rooms p { margin: 0; font-size: .95rem; }
   .touring .grid { align-items: center; }
   .touring__list { list-style: none; padding: 0; margin: 2rem 0; display: grid; gap: 1.1rem; }
   .touring__list li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }

@@ -1,0 +1,27 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'What if I only have part of a song?', a: 'That is the most common starting point. Bring a verse, a chorus, a title or a voice memo, and the session builds from there.' },
+  { q: 'Can we write remotely?', a: 'Yes. Sessions run on video as well as in the studio, and the work-in-progress is shared as you go.' },
+  { q: 'How are songwriting splits handled?', a: 'Splits are talked through and agreed before the session, so everyone knows where they stand.' },
+  { q: 'Can the song become a finished record?', a: 'Yes. A songwriter session can roll straight into a demo or a full production with Rubino playing, programming and mixing.' },
+];
+---
+<ServicePage
+  title="Songwriter Sessions & Co-Writing | The Fish Tank Recordings"
+  description="Co-write with Lucio Rubino, who co-wrote RED’s “Still Bleeding” and StorySide:B’s “Be Still.” Finish a song or write from scratch, in studio or remote."
+  path="/songwriter-sessions/" crumb="Songwriter sessions" eyebrow="Songwriter sessions"
+  h1="Write the song <em>with the producer in the room.</em>"
+  lede="Rubino co-wrote “Be Still,” one of BMI’s five most-played Christian radio songs of 2008, and “Still Bleeding” and “Your Devil Is a Ghost” for RED. In a songwriter session he works on your song with you: structure, melody, lyric and the parts that turn it into a record."
+  service="Songwriter sessions and co-writing" formType="Songwriter session"
+  faq={faq} faqTitle="Songwriter session questions"
+  related={[{ href: '/song-production/', label: 'Full-song production' }, { href: '/services/#assessment', label: 'Artist Assessments' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Finish what you started</h3><p>Bring the verse that has been sitting in your phone for a year. Leave with a bridge, a second verse and a chorus that lands.</p></article>
+      <article class="card"><h3>Write from a title</h3><p>Start from a title, a line or a feeling and build a song from scratch, in your voice and your genre.</p></article>
+      <article class="card"><h3>Write to demo</h3><p>Write in the morning and hear it as a produced demo by the end of the session, with Rubino on the instruments.</p></article>
+    </div>
+  </section>
+</ServicePage>

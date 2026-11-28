@@ -1,0 +1,26 @@
+---
+import ServicePage from '../layouts/ServicePage.astro';
+const faq = [
+  { q: 'Will you master a mix someone else made?', a: 'Yes. Send the final stereo mix as a high-resolution WAV with a little headroom and no limiting on the master bus.' },
+  { q: 'Is it mastered for streaming?', a: 'Yes. Masters are set for streaming services, with loudness balanced so the record holds up next to commercial releases.' },
+  { q: 'Can you master an EP or album so it flows?', a: 'Yes. Song-to-song level, tone and spacing are set so the record plays as one piece.' },
+];
+---
+<ServicePage
+  title="Mastering, St. Augustine & Online | The Fish Tank Recordings"
+  description="Mastering for singles, EPs and albums: full, warm and clear, with an A-Designs Hammer tube EQ and current tools. Send your mixes from anywhere."
+  path="/mastering/" crumb="Mastering" eyebrow="Mastering · In studio or online"
+  h1="The last step <em>before release.</em>"
+  lede="Mastering sets the flow, balance and loudness of a record so it sounds finished everywhere it plays. Rubino masters with hardware such as the A-Designs Hammer tube EQ and current software, and walks you through each decision."
+  service="Music mastering" formType="Mastering"
+  faq={faq} faqTitle="Mastering questions"
+  related={[{ href: '/mixing/', label: 'Mixing' }, { href: '/song-production/', label: 'Full-song production' }]}
+>
+  <section class="section">
+    <div class="wrap grid grid-3">
+      <article class="card"><h3>Singles</h3><p>One song, mastered for streaming and radio, delivered with the files distributors ask for.</p></article>
+      <article class="card"><h3>EPs and albums</h3><p>Every song mastered to sit together, with matched levels and tone from track one to the last.</p></article>
+      <article class="card"><h3>Attended or remote</h3><p>Sit in at the studio above the marsh, or send the mixes and hear the masters online.</p></article>
+    </div>
+  </section>
+</ServicePage>
