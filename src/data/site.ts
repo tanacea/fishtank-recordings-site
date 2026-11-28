@@ -23,7 +23,6 @@ export const business = {
     instagramStudio: 'https://www.instagram.com/thefishtankrecordings/',
     instagramLu: 'https://www.instagram.com/iamluciorubino/',
     facebook: 'https://www.facebook.com/The-Fish-Tank-Recording-Studio-155965524428172/',
-    soundcloud: 'https://soundcloud.com/thefishtankrecordings',
     youtube: 'https://www.youtube.com/channel/UCJsmo1F_Nk4vph0CQJPo56w',
     spotifyLu: 'https://open.spotify.com/artist/1a7rwgPMYCZ1USZm6YZX7Z',
     spotifyStorySideB: 'https://open.spotify.com/artist/6YadZn1F4LMfrYPXzovR1w',
@@ -37,6 +36,23 @@ export const spotify = [
   { type: 'artist', id: '6YadZn1F4LMfrYPXzovR1w', label: 'StorySide:B', sub: 'Lead vocals · co-writer' },
   { type: 'track', id: '09Gxf0vmUCUPB1LixAc2b9', label: 'Grey Daze: “In Time”', sub: 'Chester Bennington’s first band' }, // TODO: swap to the Amends (2020) version Lu produced; this ID is the 1997 No Sun Today original
 ];
+
+// ── Funnel ──────────────────────────────────────────────────
+// Every page leads to one action: a free Dive In visit (in person or Google Meet).
+export const cta = {
+  label: 'Book Your Free Dive In Visit',
+  short: 'Book a Free Dive In',
+  href: 'https://calendly.com/luciorubino/divein',
+  micro: 'Free, no pressure, no obligation.',
+};
+// No prices anywhere on the site. Lu discusses pricing in person.
+export const packagesLine = 'Single and EP packages, with payment plans available. We’ll find the right fit at your free visit.';
+export const genresLine = 'Singer-songwriter, rock, pop, country and metal.';
+
+// Lead forms post here. FormSubmit forwards each submission to Lu by email
+// (the first submission triggers a one-time activation email to lrubino@me.com).
+// Override with PUBLIC_FORM_ENDPOINT (e.g. a MailerLite/Mailchimp-backed endpoint).
+export const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formsubmit.co/ajax/lrubino@me.com';
 
 export const nav = [
   { label: 'Production', href: '/song-production/' },
@@ -233,19 +249,6 @@ export const testimonials = [
   },
 ];
 
-// SoundCloud tracks (permalinks verified on soundcloud.com/thefishtankrecordings, Nov 2026).
-// The widget loads tracks by permalink; the old numeric-ID URLs no longer resolve.
-const SC = 'https://soundcloud.com/thefishtankrecordings/';
-export const tracks = [
-  { title: 'Fallen Skies', artist: 'UnMasKd', url: SC + 'unmaskd-fallen-skies' },
-  { title: 'Is A Life So Small', artist: 'Randy Brantley', url: SC + 'randy-brantley-is-a-life-so-small' },
-  { title: 'Emergency', artist: 'The Ineloquent', url: SC + 'the-ineloquent-emergency' },
-  { title: 'Devil In Red Shoes', artist: 'Samantha Leigh', url: SC + 'samantha-leigh-devil-in-red-shoes' },
-  { title: 'Somewhere Down The Road', artist: 'Tom Freeman', url: SC + 'tomfreeman-02v1-somewheredowntheroad-isrc-000000000000' },
-  { title: 'New Blood', artist: 'Farewell To Fear', url: SC + 'farewell-to-fear-new-blood' },
-  { title: 'Written In The Stars', artist: 'Billy Lord', url: SC + 'billylord-03v1-writteninthestars' },
-  { title: 'My Only Hope', artist: 'Elizabeth Grace', url: SC + 'elizabethgrace-my-only-hope' },
-];
 
 export const gear = [
   {
@@ -306,3 +309,10 @@ export const gear = [
     ],
   },
 ];
+
+// Before-and-after examples: a client's rough demo next to the finished record.
+// Lu is sending these with each artist's permission. Each `demo`/`final` is an
+// audio URL (mp3 in /public/audio/ or a hosted file). Empty = section hidden
+// on the live site (a placeholder shows on the dev site only).
+export type BeforeAfter = { artist: string; song: string; started: string; demo: string; final: string; spotifyId?: string };
+export const beforeAfter: BeforeAfter[] = [];

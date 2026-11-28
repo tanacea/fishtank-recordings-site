@@ -16,6 +16,11 @@ const redirects = {
   '/advertising': '/commercial-music/',
   '/ourservices': '/services/',
   '/gearlist': '/gear/',
+  // Leftover Squarespace template pages (launch checklist): send to real pages.
+  '/home': '/',
+  '/home-alt': '/',
+  '/projects': '/song-production/',
+  '/book': '/contact/',
 };
 
 export default defineConfig({

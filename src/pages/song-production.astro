@@ -1,13 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import TrackList from '../components/TrackList.vue';
+import Anywhere from '../components/Anywhere.astro';
+import DiveIn from '../components/DiveIn.astro';
+import DiveInCta from '../components/DiveInCta.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import PlaylistEmbed from '../components/PlaylistEmbed.astro';
 import Faq from '../components/Faq.astro';
 import Testimonials from '../components/Testimonials.astro';
-import { tracks, business as b } from '../data/site';
+import { business as b, packagesLine, genresLine } from '../data/site';
 
 const faq = [
   { q: 'Can I come in with just a voice memo?', a: 'Yes. Many Fish Tank records started as phone recordings. Rubino helps shape structure, melody, lyric and arrangement before anything is tracked.' },
+  { q: 'Can you turn a Suno demo into a real record?', a: 'Yes. Got a Suno demo you love? Rubino rebuilds it as a real record you can release, with live instruments, real vocals and a proper mix and master.' },
+  { q: 'Do I have to come to the studio?', a: 'No. Send your song from anywhere, talk through your goals, and Rubino builds the full production while you give feedback along the way. Or fly in and record above the St. Augustine marsh.' },
+  { q: 'How long does it take?', a: 'Turnarounds are quick. The schedule for your record is set at your free Dive In visit, based on the number of songs and your release plans.' },
+  { q: 'How much does it cost?', a: `Pricing is worked out at your free Dive In visit. ${packagesLine}` },
   { q: 'Who plays the instruments?', a: 'Rubino is a multi-instrumentalist: guitars, bass, keys and drums, plus programming and sound design. The studio also keeps basses, guitars, a Dobro, a banjo, an upright bass and a Medicine Man drum kit on hand. Artists with a band are welcome to bring it.' },
   { q: 'Do you help with songwriting?', a: 'Yes. Rubino is a co-writer on RED’s Rated R and co-wrote StorySide:B’s BMI-recognized “Be Still.” Co-writing is part of full-song production whenever the song calls for it.' },
   { q: 'What do I get at the end?', a: 'Mixed and mastered tracks ready for streaming and radio. Ask about instrumentals and alternate versions for your project.' },
@@ -18,19 +26,20 @@ const schema = [{
   serviceType: 'Music production',
   name: 'Full-Song Music Production',
   provider: { '@id': `${b.url}/#studio` },
-  areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'Florida', 'Nashville, TN', 'United States'],
+  areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'Florida', 'Nashville, TN', 'United States', 'Worldwide (remote)'],
   description: 'Complete song production: songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino.',
 }];
 ---
 <Base
-  title="Full-Song Music Production in St. Augustine, FL | The Fish Tank"
-  description="From demo to finished record. Songwriting, arrangement, tracking, mixing and mastering with producer Lucio Rubino (Paramore, RED, Grey Daze)."
+  title="Full-Song Music Production, Remote or In Studio | The Fish Tank"
+  description="From voice memo or Suno demo to finished record. Songwriting, arrangement, playing, mixing and mastering with Lucio Rubino (Paramore, RED, Grey Daze)."
   schema={schema}
   crumbs={[{ name: 'Song Production', path: '/song-production/' }]}
 >
   <PageHero eyebrow="Our work · Song production" title="Full-song production, <em>demo to master.</em>"
-    lede="Full-song production is The Fish Tank’s core business. Rubino takes a song from rough demo to finished master: the writing and arrangement, the players, the sound, the mix. One producer stays on the record from start to finish.">
-    <div style="margin-top:2rem"><a href="/contact/" class="btn">Talk about your songs →</a></div>
+    lede="Full-song production is The Fish Tank’s core business. Rubino takes a song from rough demo to finished master: the writing and arrangement, the players, the sound, the mix. One producer stays on the record from start to finish, with quick turnarounds, in the studio or remotely.">
+    <p class="genres">{genresLine}</p>
+    <div style="margin-top:1.6rem"><DiveInCta /></div>
   </PageHero>
 
   <section class="section">
@@ -39,6 +48,7 @@ const schema = [{
         <h2>Why one producer <em>instead of studio time.</em></h2>
         <p>Booking studio time buys an engineer and a clock. Full-song production brings in a multi-instrumentalist and programmer who has <strong>played on a Platinum album</strong>, <strong>co-written with a Grammy-nominated band</strong> and <strong>fronted a label act</strong>, and who stays with the song until it is finished.</p>
         <p>Rubino’s credits span pop-punk, hard rock, singer-songwriter records, Christian radio and jazz fusion. That range shows up in the decisions: when a chorus needs more lift, when a song wants a different key, and when the right call is to take parts away.</p>
+        <p><strong>Quick turnarounds.</strong> Rubino plays most of the parts himself, so a record doesn’t wait on a calendar of session players.</p>
         <h3>What's included</h3>
         <ul>
           <li>Song consultation, structure and co-writing</li>
@@ -54,11 +64,18 @@ const schema = [{
     </div>
   </section>
 
+  <Anywhere alt />
+
+  <BeforeAfter />
+
   <section class="section section--alt">
-    <div class="wrap">
-      <p class="eyebrow">Listen</p>
-      <h2>Selected productions <em>from the studio.</em></h2>
-      <TrackList client:visible tracks={tracks} />
+    <div class="wrap grid split">
+      <div>
+        <p class="eyebrow">Listen · On Spotify</p>
+        <h2>Songs Rubino <em>had a hand in.</em></h2>
+        <p class="lede">Writing, playing and production credits across rock, pop-punk, singer-songwriter and Christian radio records.</p>
+      </div>
+      <PlaylistEmbed height={380} />
     </div>
   </section>
 
@@ -71,4 +88,10 @@ const schema = [{
   <section class="section section--alt">
     <div class="wrap"><Faq items={faq} title="Production questions" /></div>
   </section>
+
+  <DiveIn />
 </Base>
+
+<style>
+  .genres { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 1.4rem 0 0; }
+</style>

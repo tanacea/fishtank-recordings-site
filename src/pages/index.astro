@@ -1,29 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
-import TrackList from '../components/TrackList.vue';
 import Testimonials from '../components/Testimonials.astro';
 import Faq from '../components/Faq.astro';
-import SpotifyTracks from '../components/SpotifyTracks.vue';
-import { songId } from '../data/discography';
-import { tracks, marquee, business as b } from '../data/site';
-
-const featured = [
-  { title: 'Pressure', artist: 'Paramore', note: 'Platinum · bass', id: songId('Pressure', 'Paramore') },
-  { title: 'In Time', artist: 'Grey Daze', note: 'Chester Bennington of Linkin Park', id: songId('In Time', 'Grey Daze') },
-  { title: 'Be Still', artist: 'StorySide:B', note: 'BMI Top 5 · co-writer', id: songId('Be Still', 'StorySide:B') },
-  { title: 'TRIALS', artist: 'STARSET', id: songId('TRIALS', 'STARSET') },
-  { title: 'Tell Me How To Say Goodbye', artist: 'RED', id: songId('Tell Me How To Say Goodbye', 'RED') },
-  { title: 'Alabama Rhap Corollary', artist: 'Larry Coryell', id: songId('Alabama Rhap Corollary', 'Larry Coryell') },
-  { title: 'Kamikaze', artist: 'Manafest', id: songId('Kamikaze', 'Manafest') },
-  { title: 'Addicted To My Pain', artist: 'Seventh Day Slumber', id: songId('Addicted To My Pain', 'Seventh Day Slumber') },
-  { title: 'I Am a Pilgrim', artist: 'Lucio Rubino', note: 'Solo', id: songId('I Am a Pilgrim', 'Lucio Rubino') },
-];
+import PlaylistEmbed from '../components/PlaylistEmbed.astro';
+import Anywhere from '../components/Anywhere.astro';
+import DiveIn from '../components/DiveIn.astro';
+import DiveInCta from '../components/DiveInCta.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import { trackCount } from '../data/discography';
+import { marquee, business as b, cta, packagesLine, genresLine } from '../data/site';
 
 const faq = [
-  { q: 'What does full-song production include?', a: 'Everything it takes to turn a song idea into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), vocal coaching, editing, mixing and mastering. You can come in with a voice memo or a finished demo.' },
+  { q: 'How do I get a quote?', a: `Book a free Dive In visit, in person at the studio or on Google Meet. Rubino listens to your song, talks through your goals and lays out a plan. ${packagesLine}` },
+  { q: 'Can you produce my song if I don’t live near St. Augustine?', a: 'Yes. Remote production is a big part of the work. Send a voice memo, a demo or a Suno track, talk through your goals, and Rubino builds the full production. You give feedback along the way and receive a finished master.' },
+  { q: 'What kinds of music do you produce?', a: `${genresLine} Rubino’s credits run from pop-punk and hard rock to Christian radio and jazz fusion.` },
+  { q: 'What does full-song production include?', a: 'Everything it takes to turn a song into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), programming, vocal coaching, editing, mixing and mastering.' },
   { q: 'Do I need a band to record a full production?', a: 'No. Rubino is a multi-instrumentalist who covers guitars, bass, keys, drums and programming on his productions, so many artists arrive with only a voice and a guitar.' },
   { q: 'Where is the studio?', a: `The Fish Tank Recordings is at ${b.street} in St. Augustine, Florida: an elevated studio down a private drive, overlooking the marsh, about 45 minutes from Jacksonville. Sessions are by appointment.` },
-  { q: 'How do I get a quote?', a: 'Send an inquiry with a link to your demo, how many songs you have and your timeline. Rubino replies personally with a plan and a price.' },
 ];
 
 const schema = [{
@@ -34,7 +27,8 @@ const schema = [{
 }];
 ---
 <Base
-  title="Recording Studio & Music Producer in St. Augustine, FL | The Fish Tank"  description="Full-song production, recording, mixing and mastering in St. Augustine, FL. Producer Lucio Rubino: bass on Paramore’s Platinum debut, co-writer for RED. Since 2002."
+  title="Music Producer · Remote or St. Augustine, FL | The Fish Tank"
+  description="Bring your song, leave with a record. Producer Lucio Rubino (Paramore, RED, STARSET, Grey Daze) produces, mixes and masters, in St. Augustine, FL or remotely."
   schema={schema}
 >
   <!-- HERO -->
@@ -42,13 +36,15 @@ const schema = [{
     <div class="hero__bg" role="img" aria-label="The Fish Tank control room: SSL console, monitors and a wall of guitars"></div>
     <div class="wrap hero__grid">
       <div>
-        <p class="eyebrow">Recording studio · St. Augustine, Fla. · Since {b.founded}</p>
-        <h1>The St. Augustine studio where Lucio Rubino <em>turns songs into records.</em></h1>
-        <p class="lede">A multi-instrumentalist, producer and programmer, Rubino played on Paramore’s Platinum-certified debut, co-wrote for Nashville rock band RED and produced a track on a Top 10 rock album for Grey Daze. At <strong>The Fish Tank</strong>, his elevated studio overlooking the St. Augustine marsh, he takes artists’ songs from demo to master.</p>
+        <p class="eyebrow">Full-song production · In studio or remote · Since {b.founded}</p>
+        <h1>Bring your song. <em>Leave with a record.</em></h1>
+        <p class="lede">Lucio Rubino writes, arranges, plays, records, mixes and masters, turning your song into a finished record. His credits include Paramore’s Platinum debut, RED, STARSET and Grey Daze.</p>
+        <p class="hero__genres">{genresLine}</p>
         <div class="hero__ctas">
-          <a href="/contact/" class="btn">Start a project →</a>
+          <a href={cta.href} class="btn" target="_blank" rel="noopener" data-cta="divein">{cta.label} →</a>
           <a href="#listen" class="btn btn--ghost">▶ Listen</a>
         </div>
+        <p class="hero__micro">{cta.micro} In person at the studio or on Google Meet.</p>
       </div>
       <div class="vu" aria-hidden="true">
         <div class="vu__face">
@@ -71,6 +67,8 @@ const schema = [{
       </div>
     </div>
   </section>
+
+  <Anywhere alt />
 
   <!-- PLATINUM FEATURE -->
   <section class="plat">
@@ -128,67 +126,46 @@ const schema = [{
     </div>
   </section>
 
-  <!-- PRODUCTION PROCESS -->
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="grid split">
-        <div>
-          <p class="eyebrow">Full-song production</p>
-          <h2>One producer, from the demo <em>to the final master.</em></h2>
-          <p class="lede">Most studios sell time. Rubino delivers finished records. He writes, arranges, plays the instruments, programs, engineers, mixes and masters, so a song keeps the same set of ears from the first rough take to release.</p>
-          <a href="/song-production/" class="btn btn--ghost">How production works →</a>
-        </div>
-        <ol class="steps">
-          <li><span>01</span><div><h3>The song</h3><p>Structure, key, tempo and lyric are tested against the records the artist wants to stand beside.</p></div></li>
-          <li><span>02</span><div><h3>Pre-production</h3><p>Arrangement, instrumentation and vocal approach are settled before tracking, so session time goes to performances, not decisions.</p></div></li>
-          <li><span>03</span><div><h3>Tracking</h3><p>Vocals, guitars, bass and drums run through an SSL Origin console, a FLEA U47 and outboard from Shadow Hills, API and Empirical Labs.</p></div></li>
-          <li><span>04</span><div><h3>Mix and master</h3><p>Finished in-house and delivered ready for streaming and radio.</p></div></li>
-        </ol>
-      </div>
-    </div>
-  </section>
+  <BeforeAfter alt />
 
   <!-- LISTEN -->
   <section class="section" id="listen">
-    <div class="wrap">
-      <div class="listen__head">
-        <div>
-          <p class="eyebrow">Listen</p>
-          <h2>Selected work <em>from the studio.</em></h2>
-        </div>
-        <a href={b.social.soundcloud} target="_blank" rel="noopener" class="btn btn--ghost">More on SoundCloud ↗</a>
+    <div class="wrap grid split listen">
+      <div>
+        <p class="eyebrow">Listen · On Spotify</p>
+        <h2>Songs Lucio Rubino <em>had a hand in.</em></h2>
+        <p class="lede">{trackCount} songs he has written, played on or produced, from Paramore and STARSET to RED, Grey Daze, Larry Coryell and a long list of independent artists.</p>
+        <a href="/credits/#songs" class="btn btn--ghost">Credits, song by song →</a>
       </div>
-      <TrackList client:visible tracks={tracks.slice(0, 6)} />
-      <div class="grid split sp-head">
-        <div>
-          <p class="eyebrow">Credits on Spotify · tap to play</p>
-          <h3 class="sp-title">Paramore, STARSET, RED, Grey Daze, Larry Coryell <em>and more.</em></h3>
-          <p>Nine of the 95 songs Rubino has worked on as a writer, player or producer. Tap a title to play it here.</p>
-          <a href="/credits/#songs" class="btn btn--ghost">All 95 songs →</a>
-        </div>
-        <SpotifyTracks client:visible tracks={featured} />
-      </div>
+      <PlaylistEmbed height={452} />
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="section section--alt">
+  <section class="section">
     <div class="wrap">
       <p class="eyebrow">Services</p>
       <h2>Every stage of a record, <em>under one roof.</em></h2>
+      <p class="lede">{genresLine}</p>
       <div class="grid grid-3 svc">
-        <a class="card" href="/song-production/"><span class="num">01</span><h3>Song Production</h3><p>Co-writing, arranging, performing and producing complete songs for artists and songwriters.</p></a>
-        <a class="card" href="/services/#recording"><span class="num">02</span><h3>Recording</h3><p>High-resolution multitrack recording, up to 96 tracks, through an SSL Origin console.</p></a>
-        <a class="card" href="/services/#mixing"><span class="num">03</span><h3>Mixing & Mastering</h3><p>Mixes with space and impact, and masters that hold up next to commercial releases.</p></a>
-        <a class="card" href="/film-tv-scoring/"><span class="num">04</span><h3>Film & TV Scoring</h3><p>Original music composed and recorded to picture for television, film and documentary.</p></a>
-        <a class="card" href="/commercial-music/"><span class="num">05</span><h3>Commercial Music</h3><p>Custom music for TV and radio campaigns, written to the brief.</p></a>
-        <a class="card" href="/services/#arrangement"><span class="num">06</span><h3>Arrangement & Coaching</h3><p>Orchestral arrangements, plus vocal and instrument coaching during sessions.</p></a>
+        <a class="card" href="/song-production/"><span class="num">01</span><h3>Full-Song Production</h3><p>Co-writing, arranging, playing and producing complete songs, from a voice memo or Suno demo to a finished master. Quick turnarounds.</p></a>
+        <a class="card" href="/services/#assessment"><span class="num">02</span><h3>Artist Assessments</h3><p>Not sure where to start? Get a professional assessment of your music and a plan for what’s next.</p></a>
+        <a class="card" href="/services/#recording"><span class="num">03</span><h3>Recording</h3><p>High-resolution multitrack recording, up to 96 tracks, through an SSL Origin console.</p></a>
+        <a class="card" href="/services/#mixing"><span class="num">04</span><h3>Mixing & Mastering</h3><p>Mixes with space and impact, and masters that hold up next to commercial releases.</p></a>
+        <a class="card" href="/services/#arrangement"><span class="num">05</span><h3>Arrangement & Coaching</h3><p>Orchestral arrangements, plus vocal and instrument coaching during sessions.</p></a>
+        <a class="card" href="/film-tv-scoring/"><span class="num">06</span><h3>Film, TV & Commercial</h3><p>Original music for picture, television and radio campaigns, written to the brief.</p></a>
+      </div>
+      <div class="pkg">
+        <p class="pkg__line">{packagesLine}</p>
+        <DiveInCta />
       </div>
     </div>
   </section>
 
+  <DiveIn />
+
   <!-- LUCIO -->
-  <section class="section">
+  <section class="section section--alt">
     <div class="wrap grid split">
       <img class="img" src="/images/lu-console.webp" alt="Lucio Rubino at the console in The Fish Tank control room" width="800" height="1000" loading="lazy" decoding="async" />
       <div>
@@ -225,7 +202,13 @@ const schema = [{
   <!-- LOCATION + FAQ -->
   <section class="section">
     <div class="wrap grid split">
-      <Faq items={faq} />
+      <div>
+        <Faq items={faq} />
+        <div class="faq__cta">
+          <p>{packagesLine}</p>
+          <DiveInCta />
+        </div>
+      </div>
       <div class="loc card">
         <p class="eyebrow">Location</p>
         <h3>{b.street}<br />{b.city}, {b.region} {b.postal}</h3>
@@ -257,6 +240,13 @@ const schema = [{
   @media (min-width: 960px) { .hero__grid { grid-template-columns: 1.35fr .65fr; } }
   .hero h1 { max-width: 15ch; }
   .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .hero__genres { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 1.2rem 0 0; }
+  .hero__micro { margin: .9rem 0 0; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .listen { align-items: center; }
+  .pkg { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; justify-content: space-between; }
+  .pkg__line { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--cream); max-width: 34ch; }
+  .faq__cta { margin-top: 2rem; }
+  .faq__cta p { color: var(--cream); }
 
   /* VU meters */
   .vu { display: grid; gap: 1.1rem; }

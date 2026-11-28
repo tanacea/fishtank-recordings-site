@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import DiveInCta from '../components/DiveInCta.astro';
 import { business as b } from '../data/site';
 const schema = [{
   '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Film and television music scoring',
@@ -25,7 +26,7 @@ const schema = [{
         </ul>
         <blockquote>“Lu is arguably the most talented artist/composer in NE Florida.”<cite>Michael Arbuthnot, TV host & producer</cite></blockquote>
         <p>Scores run from full orchestral arrangements to spare acoustic cues, and everything is composed, performed and mixed in-house. That keeps turnaround short, even when the brief is loose.</p>
-        <a class="btn" href="/contact/">Discuss your project →</a>
+        <DiveInCta />
       </div>
       <img class="img img--wide" src="/images/outboard-wide.webp" alt="Outboard processing gear in The Fish Tank control room" width="1600" height="899" loading="lazy" decoding="async" />
     </div>

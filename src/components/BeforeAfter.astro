@@ -1,0 +1,60 @@
+---
+// Rough demo vs. finished record, side by side. Hidden on the live site until
+// Lu supplies examples; shows a placeholder on the dev (noindex) build.
+import { beforeAfter } from '../data/site';
+interface Props { alt?: boolean }
+const { alt = false } = Astro.props;
+const isDev = import.meta.env.PUBLIC_NOINDEX === 'true';
+const show = beforeAfter.length > 0 || isDev;
+---
+{show && (
+<section class:list={['section', { 'section--alt': alt }]} id="before-after">
+  <div class="wrap">
+    <p class="eyebrow">Before and after</p>
+    <h2>The demo they brought in. <em>The record they left with.</em></h2>
+    <p class="lede">Press play on the rough version, then the finished one. Same song, same artist, shared with their permission.</p>
+    {beforeAfter.length > 0 ? (
+      <div class="ba">
+        {beforeAfter.map((x) => (
+          <article class="ba__item card">
+            <p class="ba__meta"><strong>{x.artist}</strong> · “{x.song}”</p>
+            <p class="ba__started">Came in with: {x.started}</p>
+            <div class="ba__pair">
+              <figure><figcaption>Before · demo</figcaption><audio controls preload="none" src={x.demo}></audio></figure>
+              <figure><figcaption class="amber">After · finished record</figcaption><audio controls preload="none" src={x.final}></audio></figure>
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="ba ba--ph">
+        {[1, 2].map(() => (
+          <article class="ba__item card">
+            <p class="ba__meta"><strong>Artist name</strong> · “Song title”</p>
+            <p class="ba__started">Came in with: a voice memo</p>
+            <div class="ba__pair">
+              <figure><figcaption>Before · demo</figcaption><div class="ba__bar"></div></figure>
+              <figure><figcaption class="amber">After · finished record</figcaption><div class="ba__bar"></div></figure>
+            </div>
+          </article>
+        ))}
+        <p class="ba__note">Dev preview only: this section stays hidden on the live site until Lu sends the first examples.</p>
+      </div>
+    )}
+  </div>
+</section>
+)}
+
+<style>
+  .ba { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+  @media (min-width: 900px) { .ba { grid-template-columns: 1fr 1fr; } }
+  .ba__meta { margin: 0; color: var(--cream); }
+  .ba__started { margin: .3rem 0 1.2rem; font-size: .9rem; color: var(--muted); }
+  .ba__pair { display: grid; gap: 1rem; }
+  figure { margin: 0; display: grid; gap: .5rem; }
+  figcaption { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  figcaption.amber { color: var(--amber); }
+  audio { width: 100%; height: 40px; }
+  .ba__bar { height: 40px; border-radius: 20px; background: var(--ink-3); border: 1px dashed var(--line); }
+  .ba__note { grid-column: 1 / -1; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--red); margin: 0; }
+</style>

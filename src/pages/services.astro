@@ -1,10 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { business as b } from '../data/site';
+import DiveInCta from '../components/DiveInCta.astro';
+import Faq from '../components/Faq.astro';
+import { business as b, packagesLine, genresLine } from '../data/site';
 
 const services = [
-  { id: 'production', title: 'Full-Song Production', href: '/song-production/', body: 'Songwriting, structure, arrangement, instrumentation, performance, vocal arrangement, coaching and lyrics, taken all the way to a release-ready record.' },
+  { id: 'production', title: 'Full-Song Production', href: '/song-production/', body: 'Songwriting, structure, arrangement, instrumentation, performance, vocal arrangement, coaching and lyrics, taken all the way to a release-ready record, in the studio or remotely, with quick turnarounds. Got a Suno demo you love? Let’s turn it into a real record you can release.' },
+  { id: 'assessment', title: 'Artist Assessments', body: 'Not sure where to start? Get a professional assessment of your music and a plan for what’s next. In a 45- or 60-minute one-on-one session, Rubino reviews your songs, your voice and your direction, then gives honest feedback and a clear plan for the next steps. It is a strong first move for young and developing artists, and for the parents helping them find their way.' },
   { id: 'recording', title: 'Hi-Definition Multitrack Recording', body: 'Up to 96 tracks of high-resolution detail on Avid Pro Tools HD and industry-standard converters, through an SSL Origin console and a mic locker led by a FLEA U47 Next and Royer and AEA ribbons. The detail of a performance is captured as it happened.' },
   { id: 'mixing', title: 'Mixing', body: 'Balance, compression and EQ so every part has its own space and the record lands as a whole. Analog color comes from a Shadow Hills Dual Vandergraph, Elysia Nvelope, API 512b and a pair of Empirical Labs Distressors.' },
   { id: 'mastering', title: 'Mastering', body: 'The last step before release: flow, balance and loudness, set with hardware such as the A-Designs Hammer tube EQ and current software, for a master that is full, warm and clear. Artists are walked through the process.' },
@@ -16,6 +19,11 @@ const services = [
   { id: 'live', title: 'On-Location Recording', body: 'On-location 24-track live recording and sound reinforcement for concerts and events.' },
   { id: 'consulting', title: 'Music Business Consultation', body: 'Practical advice on releasing music, positioning and building a career, from someone who has signed deals, toured and released records.' },
 ];
+const faq = [
+  { q: 'How much does a project cost?', a: `Every record is different, so pricing is worked out in person. Book a free Dive In visit and Rubino will listen to your song and recommend the right package. ${packagesLine}` },
+  { q: 'How do I get a quote?', a: 'Book a free Dive In visit, in person at the studio or on Google Meet. You leave with a clear plan for your record. Free, no pressure, no obligation.' },
+  { q: 'Who is an Artist Assessment for?', a: 'Young and developing artists who want an honest read on their songs, voice and direction, and parents who want a professional opinion and a plan before investing in a record.' },
+];
 const schema = [{
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
@@ -24,13 +32,19 @@ const schema = [{
 }];
 ---
 <Base
-  title="Recording, Mixing & Mastering Services in St. Augustine | The Fish Tank"
-  description="Recording, mixing, mastering, symphonic arrangement, vocal coaching, voice-over and on-location recording at The Fish Tank Recordings in St. Augustine, FL."
+  title="Music Production, Mixing & Artist Assessments | The Fish Tank"
+  description="Full-song production, artist assessments, recording, mixing and mastering with Lucio Rubino, in St. Augustine, FL or remotely. Book a free Dive In visit."
   schema={schema}
   crumbs={[{ name: 'Services', path: '/services/' }]}
 >
   <PageHero eyebrow="Services" title="Recording, mixing, mastering <em>and everything around it.</em>"
-    lede="From full productions to a single mix, every project runs through the same room and the same producer." />
+    lede={`From full productions to a single mix, every project runs through the same room and the same producer. ${genresLine}`}>
+    <div style="margin-top:2rem"><DiveInCta /></div>
+  </PageHero>
+
+  <section class="pkgband">
+    <div class="wrap pkgband__in"><p>{packagesLine}</p><a href="#assessment">Artist Assessments →</a></div>
+  </section>
 
   <section class="section">
     <div class="wrap svc-list">
@@ -47,6 +61,18 @@ const schema = [{
       <p class="gearlink">See everything in the room on the <a href="/gear/">gear list →</a></p>
     </div>
   </section>
+
+  <section class="section section--alt">
+    <div class="wrap grid split">
+      <Faq title="Pricing and packages" items={faq} />
+      <div class="card">
+        <p class="eyebrow">Start here</p>
+        <h2>Talk it through <em>at a free Dive In visit.</em></h2>
+        <p>{packagesLine}</p>
+        <DiveInCta />
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -56,4 +82,8 @@ const schema = [{
   .num { font-family: var(--font-mono); color: var(--amber); font-size: .9rem; padding-top: .6rem; }
   .svc a { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
   .gearlink { margin-top: 2.5rem; }
+  .pkgband { border-block: 1px solid var(--line); background: var(--ink-2); }
+  .pkgband__in { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; align-items: center; padding-block: 1.4rem; }
+  .pkgband p { margin: 0; color: var(--cream); font-family: var(--font-display); font-size: 1.2rem; }
+  .pkgband a { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 </style>

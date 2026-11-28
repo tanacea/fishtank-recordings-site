@@ -1,21 +1,23 @@
 ---
 import Logo from './Logo.astro';
-import { business as b } from '../data/site';
+import DiveInCta from './DiveInCta.astro';
+import { business as b, packagesLine } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="ftr">
   <div class="wrap">
     <div class="ftr__cta">
-      <p class="eyebrow">Start a project</p>
-      <h2>Songs that need <em>a producer?</em></h2>
-      <p class="ftr__lede">Send a demo and a few details. Rubino reads every inquiry himself.</p>
-      <a href="/contact/" class="btn">Start a project →</a>
+      <p class="eyebrow">Your next record starts here</p>
+      <h2>Bring your song. <em>Leave with a record.</em></h2>
+      <p class="ftr__lede">Sit down with Lucio Rubino, at the studio or on Google Meet. Play him the song and leave with a plan. {packagesLine}</p>
+      <DiveInCta center />
+      <p class="ftr__ep"><a href="#" data-ep-offer>Get 20% off your EP →</a></p>
     </div>
     <hr class="rule" />
     <div class="ftr__grid">
       <div>
         <Logo />
-        <p class="ftr__blurb">Full-song production, recording, mixing and mastering in St. Augustine, Fla., since {b.founded}.</p>
+        <p class="ftr__blurb">Full-song production, recording, mixing and mastering since {b.founded}. In St. Augustine, Fla., and remotely for artists anywhere.</p>
       </div>
       <div>
         <h3 class="ftr__h">Studio</h3>
@@ -24,7 +26,7 @@ const year = new Date().getFullYear();
           <a href={`tel:${b.phoneE164}`}>{b.phone}</a><br />
           <a href={`mailto:${b.email}`}>{b.email}</a>
         </address>
-        <p class="ftr__small">Sessions by appointment</p>
+        <p class="ftr__small">Sessions by appointment · Remote projects welcome</p>
       </div>
       <div>
         <h3 class="ftr__h">Work</h3>
@@ -33,6 +35,7 @@ const year = new Date().getFullYear();
           <li><a href="/services/">Recording · Mixing · Mastering</a></li>
           <li><a href="/film-tv-scoring/">Film & TV Scoring</a></li>
           <li><a href="/commercial-music/">Commercial Music</a></li>
+          <li><a href="/services/#assessment">Artist Assessments</a></li>
           <li><a href="/credits/">Credits</a></li>
         </ul>
       </div>
@@ -42,7 +45,6 @@ const year = new Date().getFullYear();
           <li><a href={b.social.instagramStudio} rel="me noopener" target="_blank">Instagram · Studio</a></li>
           <li><a href={b.social.instagramLu} rel="me noopener" target="_blank">Instagram · Lucio</a></li>
           <li><a href={b.social.spotifyLu} rel="me noopener" target="_blank">Spotify · Lucio</a></li>
-          <li><a href={b.social.soundcloud} rel="me noopener" target="_blank">SoundCloud</a></li>
           <li><a href={b.social.youtube} rel="me noopener" target="_blank">YouTube</a></li>
           <li><a href={b.social.facebook} rel="me noopener" target="_blank">Facebook</a></li>
         </ul>
@@ -56,7 +58,8 @@ const year = new Date().getFullYear();
   .ftr { background: var(--ink-2); border-top: 1px solid var(--line); padding-top: 5rem; }
   .ftr__cta { text-align: center; padding-bottom: 4.5rem; }
   .ftr__cta h2 { max-width: 18ch; margin: 0 auto 1rem; }
-  .ftr__lede { margin-bottom: 2rem; }
+  .ftr__lede { margin: 0 auto 2rem; max-width: 56ch; }
+  .ftr__ep { margin: 1.4rem 0 0; font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
   .ftr__grid { display: grid; gap: 2.5rem; padding: 3.5rem 0; }
   @media (min-width: 760px) { .ftr__grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
   .ftr__blurb { margin-top: 1.2rem; font-size: .95rem; max-width: 34ch; }

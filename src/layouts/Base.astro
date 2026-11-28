@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import EpOffer from '../components/EpOffer.vue';
 import { business as b } from '../data/site';
 
 interface Crumb { name: string; path: string }
@@ -24,13 +25,12 @@ const org = {
   '@id': `${b.url}/#studio`,
   name: b.name,
   additionalType: 'https://en.wikipedia.org/wiki/Recording_studio',
-  description: 'Recording studio and full-song music production in St. Augustine, Florida, led by producer Lucio Rubino.',
+  description: 'Full-song music production, recording, mixing and mastering by producer Lucio Rubino, in St. Augustine, Florida and remotely for artists anywhere.',
   url: b.url,
   telephone: b.phoneE164,
   email: b.email,
   foundingDate: String(b.founded),
   image: `${b.url}/og-default.jpg`,
-  priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
     streetAddress: b.street,
@@ -39,9 +39,9 @@ const org = {
     postalCode: b.postal,
     addressCountry: b.country,
   },
-  areaServed: ['St. Augustine', 'Jacksonville', 'North Florida', 'Nashville', 'United States'],
+  areaServed: ['St. Augustine', 'Jacksonville', 'North Florida', 'Nashville', 'United States', 'Worldwide (remote production)'],
   founder: { '@id': `${b.url}/#lucio` },
-  sameAs: [b.social.instagramStudio, b.social.facebook, b.social.soundcloud, b.social.youtube],
+  sameAs: [b.social.instagramStudio, b.social.facebook, b.social.youtube],
 };
 const person = {
   '@context': 'https://schema.org',
@@ -97,5 +97,6 @@ const blocks = [org, person, breadcrumb, ...schema].filter(Boolean);
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <EpOffer client:idle />
   </body>
 </html>

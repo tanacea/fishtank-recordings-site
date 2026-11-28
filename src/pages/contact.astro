@@ -2,20 +2,29 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import InquiryForm from '../components/InquiryForm.vue';
-import { business as b } from '../data/site';
+import DiveIn from '../components/DiveIn.astro';
+import { business as b, cta, packagesLine } from '../data/site';
+const calendly = `${cta.href}?hide_gdpr_banner=1&background_color=161210&text_color=efe6d8&primary_color=f0a43a`;
 ---
 <Base
-  title="Book a Session: Contact The Fish Tank Recordings, St. Augustine"
-  description="Send a project inquiry to producer Lucio Rubino at The Fish Tank Recordings, 24 Althea St, St. Augustine, FL. Call (904) 377-7611."
-  crumbs={[{ name: 'Contact', path: '/contact/' }]}
+  title="Book a Free Dive In Visit with Lucio Rubino | The Fish Tank"
+  description="Book a free Dive In visit with producer Lucio Rubino, at the St. Augustine studio or on Google Meet. Bring your song and leave with a plan. No pressure."
+  crumbs={[{ name: 'Book a Dive In visit', path: '/contact/' }]}
 >
-  <PageHero eyebrow="Contact · Let's work together" title="Start <em>a project.</em>"
-    lede="Share a demo, how many songs you have and when you want them out. Rubino reads and answers every inquiry himself." />
-  <section class="section">
+  <PageHero eyebrow="Free Dive In visit · In person or Google Meet" title="Bring your song. <em>Leave with a plan.</em>"
+    lede={`Pick a time below, at the studio or on Google Meet. Play Rubino your song, talk through your goals and leave with a clear plan for your record. ${cta.micro}`} />
+
+  <section class="section" id="book">
     <div class="wrap grid split contact">
-      <div class="card"><InquiryForm client:load /></div>
+      <div class="card cal">
+        <div class="calendly-inline-widget" data-url={calendly}></div>
+        <noscript><a class="btn" href={cta.href}>{cta.label} →</a></noscript>
+        <p class="cal__alt">Calendar not loading? <a href={cta.href} target="_blank" rel="noopener">Open the booking page ↗</a></p>
+      </div>
       <aside>
-        <h2 class="h">Or reach out directly</h2>
+        <h2 class="h">What to bring</h2>
+        <p>A voice memo, a rough demo, a Suno track or just the lyric. If you have reference records you love, bring those too.</p>
+        <p class="pkg">{packagesLine}</p>
         <dl>
           <dt>Call</dt><dd><a href={`tel:${b.phoneE164}`}>{b.phone}</a></dd>
           <dt>Email</dt><dd><a href={`mailto:${b.email}`}>{b.email}</a></dd>
@@ -25,11 +34,44 @@ import { business as b } from '../data/site';
       </aside>
     </div>
   </section>
+
+  <DiveIn alt />
+
+  <section class="section" id="send-a-demo">
+    <div class="wrap grid split contact">
+      <div>
+        <p class="eyebrow">Prefer to send a demo first?</p>
+        <h2>Send the song <em>and a few details.</em></h2>
+        <p>Rubino reads every message himself and will reply with a time for your Dive In visit.</p>
+      </div>
+      <div class="card"><InquiryForm client:visible /></div>
+    </div>
+  </section>
 </Base>
+
+<script is:inline>
+  (function () {
+    var el = document.querySelector('.calendly-inline-widget');
+    if (!el) return;
+    function load() {
+      if (window.__calendlyLoaded) return; window.__calendlyLoaded = true;
+      var s = document.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
+      document.head.appendChild(s);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '400px' });
+      io.observe(el);
+    } else { load(); }
+  })();
+</script>
 
 <style>
   .contact { align-items: start; }
+  .cal { padding: .5rem; overflow: hidden; }
+  .calendly-inline-widget { min-width: 300px; height: 720px; }
+  .cal__alt { margin: .6rem .8rem .4rem; font-size: .85rem; color: var(--muted); }
   .h { font-size: 1.8rem; }
+  .pkg { color: var(--cream); }
   dl { margin: 0; }
   dt { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: 1.5rem; }
   dd { margin: .3rem 0 0; color: var(--cream); font-size: 1.05rem; line-height: 1.6; }

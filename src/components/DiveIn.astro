@@ -1,0 +1,36 @@
+---
+// "What happens at your Dive In visit" — the funnel's destination, explained.
+import DiveInCta from './DiveInCta.astro';
+interface Props { alt?: boolean; img?: string }
+const { alt = false, img = '/images/control-room.webp' } = Astro.props;
+const steps = [
+  ['We talk about your goals', 'Where the song is now, where you want it to go and what a finished record means for you.'],
+  ['You tour the studio', 'The control room, the live room and the deck over the marsh, in person or on Google Meet.'],
+  ['We listen to your song together', 'A voice memo, a demo or a Suno track. Rubino hears what it needs and tells you plainly.'],
+  ['You leave with a clear plan', 'The approach, the scope and the right package for your record. No pressure and no obligation.'],
+];
+---
+<section class:list={['section', { 'section--alt': alt }]} id="dive-in">
+  <div class="wrap grid split di">
+    <div>
+      <p class="eyebrow">The Dive In visit · Free</p>
+      <h2>What happens at <em>your Dive In visit.</em></h2>
+      <ol class="di__list">
+        {steps.map(([h, p], i) => (
+          <li><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{h}</h3><p>{p}</p></div></li>
+        ))}
+      </ol>
+      <DiveInCta />
+    </div>
+    <img class="img" src={img} alt="The Fish Tank control room, where Dive In visits start" width="800" height="1000" loading="lazy" decoding="async" />
+  </div>
+</section>
+
+<style>
+  .di { align-items: start; }
+  .di__list { list-style: none; padding: 0; margin: 2rem 0 2.4rem; display: grid; gap: 1.4rem; }
+  .di__list li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
+  .di__list span { font-family: var(--font-mono); color: var(--amber); padding-top: .3rem; }
+  .di__list h3 { font-size: 1.25rem; margin: 0 0 .35rem; }
+  .di__list p { margin: 0; }
+</style>

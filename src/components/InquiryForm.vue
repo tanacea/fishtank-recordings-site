@@ -1,16 +1,13 @@
 <script setup lang="ts">
-// Project inquiry form.
-// Works out of the box with Netlify Forms: Netlify reads the
-// name="project-inquiry" + data-netlify attributes from the built HTML,
-// stores each submission and emails it to the address set in
-// Netlify → Forms → Notifications (lrubino@me.com).
-// If hosting elsewhere, set PUBLIC_FORM_ENDPOINT (e.g. a Formspree URL).
+// Secondary "send a demo first" form on the Dive In page.
+// Submissions are emailed to Lu through formEndpoint (see data/site.ts).
+// No prices or budget ranges: pricing is discussed at the Dive In visit.
 import { reactive, ref, computed } from 'vue';
-
-const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '/';
+import { formEndpoint as endpoint } from '../data/site';
 
 const projectTypes = [
   'Full song production',
+  'Artist assessment',
   'Recording session',
   'Mixing',
   'Mastering',
@@ -19,23 +16,22 @@ const projectTypes = [
   'Voice-over',
   'Something else',
 ];
-const budgets = ['Under $1,000', '$1,000 – $3,000', '$3,000 – $7,500', '$7,500+', 'Not sure yet'];
 
 const f = reactive({
-  name: '', email: '', phone: '', type: 'Full song production', songs: '', budget: '', timeline: '', links: '', message: '', botfield: '',
+  name: '', email: '', phone: '', type: 'Full song production', songs: '', timeline: '', links: '', message: '', _honey: '',
 });
 const state = ref<'idle' | 'sending' | 'sent' | 'error'>('idle');
 const valid = computed(() => f.name.trim() && /.+@.+\..+/.test(f.email) && f.message.trim().length > 9);
 
 async function submit() {
-  if (!valid.value || f.botfield) return;
+  if (!valid.value || f._honey) return;
   state.value = 'sending';
-  const body = new URLSearchParams({ 'form-name': 'project-inquiry', ...f } as Record<string, string>);
+  const body = JSON.stringify({ ...f, _subject: `New project inquiry: ${f.name}`, _template: 'table' });
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
-      body: body.toString(),
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body,
     });
     state.value = res.ok ? 'sent' : 'error';
   } catch {
@@ -51,9 +47,8 @@ async function submit() {
     <p>Usually within a day or two. If it's urgent, call <a href="tel:+19043777611">(904) 377-7611</a>.</p>
   </div>
 
-  <form v-else name="project-inquiry" method="POST" data-netlify="true" netlify-honeypot="botfield" class="form" @submit.prevent="submit" novalidate>
-    <input type="hidden" name="form-name" value="project-inquiry" />
-    <p class="hp"><label>Leave this empty <input v-model="f.botfield" name="botfield" tabindex="-1" autocomplete="off" /></label></p>
+  <form v-else name="project-inquiry" class="form" @submit.prevent="submit" novalidate>
+    <p class="hp"><label>Leave this empty <input v-model="f._honey" name="_honey" tabindex="-1" autocomplete="off" /></label></p>
 
     <div class="row">
       <label>Name *<input v-model="f.name" name="name" required autocomplete="name" /></label>
@@ -65,14 +60,11 @@ async function submit() {
         <select v-model="f.type" name="type"><option v-for="p in projectTypes" :key="p">{{ p }}</option></select>
       </label>
     </div>
-    <div class="row row--3">
-      <label>How many songs?<input v-model="f.songs" name="songs" inputmode="numeric" placeholder="e.g. 4" /></label>
-      <label>Budget range
-        <select v-model="f.budget" name="budget"><option value="">Choose…</option><option v-for="b in budgets" :key="b">{{ b }}</option></select>
-      </label>
+    <div class="row">
+      <label>How many songs?<input v-model="f.songs" name="songs" inputmode="numeric" placeholder="e.g. 1, or 5 for an EP" /></label>
       <label>Timeline<input v-model="f.timeline" name="timeline" placeholder="e.g. this spring" /></label>
     </div>
-    <label>Links to demos / references<input v-model="f.links" name="links" placeholder="Spotify, SoundCloud, voice memo, YouTube…" /></label>
+    <label>Links to demos / references<input v-model="f.links" name="links" placeholder="Voice memo, demo, Suno track, Dropbox, YouTube…" /></label>
     <label>Tell us about the project *<textarea v-model="f.message" name="message" rows="6" required placeholder="Genre, the artists you love the sound of, where the songs are at right now…" /></label>
 
     <div class="actions">

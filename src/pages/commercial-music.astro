@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import DiveInCta from '../components/DiveInCta.astro';
 import { business as b } from '../data/site';
 const schema = [{
   '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Commercial music production',
@@ -21,7 +22,7 @@ const schema = [{
         <h2>Selected work</h2>
         <ul class="work"><li><span>TV commercial</span><strong>Bozard Ford: Summer Sales Event</strong></li></ul>
         <blockquote>“Lu took our client’s first notes, wrote and produced custom music for their TV spots, and hit the nail on the head.”<cite>Mike Rolandelli, Creative partner, RFR</cite></blockquote>
-        <a class="btn" href="/contact/">Brief us →</a>
+        <DiveInCta />
       </div>
       <img class="img img--wide" src="/images/manley-wide.webp" alt="Close-up of Manley outboard gear with glowing VU meters" width="1600" height="900" loading="lazy" decoding="async" />
     </div>

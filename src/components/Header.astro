@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { nav } from '../data/site';
+import { nav, cta } from '../data/site';
 const path = Astro.url.pathname.replace(/\.html$/, '');
 ---
 <header class="hdr">
@@ -13,7 +13,7 @@ const path = Astro.url.pathname.replace(/\.html$/, '');
         {nav.map((n) => (
           <li><a href={n.href} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a></li>
         ))}
-        <li><a href="/contact/" class="btn hdr__cta">Book a session</a></li>
+        <li><a href={cta.href} class="btn hdr__cta" target="_blank" rel="noopener" data-cta="divein"><span class="hdr__full">{cta.label}</span><span class="hdr__short">{cta.short}</span></a></li>
       </ul>
     </nav>
   </div>
@@ -28,6 +28,8 @@ const path = Astro.url.pathname.replace(/\.html$/, '');
   nav a[aria-current]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--amber); }
   .hdr__cta { padding: .7rem 1.1rem; font-size: .7rem; }
   .hdr__toggle, .hdr__burger { display: none; }
+  .hdr__short { display: none; }
+  @media (min-width: 961px) and (max-width: 1240px) { .hdr__full { display: none; } .hdr__short { display: inline; } nav ul { gap: 1.3rem; } }
 
   @media (max-width: 960px) {
     .hdr__burger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; padding: 10px; }

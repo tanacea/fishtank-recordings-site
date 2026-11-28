@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import DiveInCta from '../components/DiveInCta.astro';
 import { business as b } from '../data/site';
 ---
 <Base
@@ -39,7 +40,8 @@ import { business as b } from '../data/site';
         <p class="eyebrow">Visit</p>
         <h3>{b.street}<br />{b.city}, {b.region} {b.postal}</h3>
         <p>Private drive · marsh-view deck · sessions by appointment</p>
-        <a class="btn" href="/contact/">Book a session →</a>
+        <p>Recording from somewhere else? Rubino produces remotely too. Or fly in and record above the St. Augustine marsh.</p>
+        <DiveInCta />
       </div>
     </div>
   </section>

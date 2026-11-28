@@ -1,0 +1,16 @@
+---
+// The one call to action used across the site: a free Dive In visit on Calendly.
+import { cta } from '../data/site';
+interface Props { ghost?: boolean; center?: boolean; micro?: boolean; label?: string }
+const { ghost = false, center = false, micro = true, label = cta.label } = Astro.props;
+---
+<div class:list={['dicta', { 'dicta--center': center }]}>
+  <a href={cta.href} class:list={['btn', { 'btn--ghost': ghost }]} target="_blank" rel="noopener" data-cta="divein">{label} →</a>
+  {micro && <p class="dicta__micro">{cta.micro} In person at the studio or on Google Meet.</p>}
+</div>
+
+<style>
+  .dicta { display: grid; gap: .8rem; justify-items: start; }
+  .dicta--center { justify-items: center; text-align: center; }
+  .dicta__micro { margin: 0; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+</style>
