@@ -21,6 +21,8 @@ const redirects = {
   '/home-alt': '/',
   '/projects': '/song-production/',
   '/book': '/contact/',
+  '/gift': '/gift-certificates/',
+  '/gifts': '/gift-certificates/',
 };
 
 export default defineConfig({

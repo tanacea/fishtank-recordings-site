@@ -14,7 +14,7 @@ export const business = {
   region: 'FL',
   postal: '32084',
   country: 'US',
-  setting: 'an elevated studio down a private drive overlooking the St. Augustine marsh',
+  setting: 'a studio raised on stilts above the St. Augustine marsh, down a winding private drive under Spanish moss',
   phone: '(904) 377-7611',
   phoneE164: '+19043777611',
   email: 'lrubino@me.com',
@@ -155,8 +155,8 @@ export const credits: Credit[] = [
   {
     artist: 'STARSET',
     work: '“Trials,” “Manifest,” “Echo,” “Faultline” + 4 more',
-    role: 'Contributor (8 songs)',
-    source: 'Confirmed by Lu via Greg, Nov 2026; Lu’s Spotify playlist',
+    role: 'Co-writer, bass (8 songs)',
+    source: 'Lu’s own bio (via Greg, Nov 28 2026); Lu’s Spotify playlist. Not yet confirmed in public credits.',
     featured: true,
   },
   {

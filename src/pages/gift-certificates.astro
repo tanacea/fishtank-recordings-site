@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import GiftForm from '../components/GiftForm.vue';
+import Faq from '../components/Faq.astro';
+import { business as b } from '../data/site';
+
+const faq = [
+  { q: 'How much is a gift certificate?', a: 'You choose. Lucio will talk through what the person you’re buying for is working on and suggest a session, a song production or an Artist Assessment that fits your budget.' },
+  { q: 'What can the certificate be used for?', a: 'Recording sessions, full-song production, mixing and mastering, or a one-on-one Artist Assessment. The recipient can also start with a free Dive In visit to plan how to use it.' },
+  { q: 'Does the recipient have to come to the studio?', a: 'No. They can record at the studio above the St. Augustine marsh or work with Lucio remotely from anywhere.' },
+  { q: 'How do I pay?', a: 'Lucio follows up personally after your request to settle the amount and arrange payment. Nothing is charged through this page.' },
+];
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Recording studio gift certificates',
+  serviceType: 'Gift certificate',
+  provider: { '@id': `${b.url}/#studio` },
+  areaServed: ['St. Augustine, FL', 'Jacksonville, FL', 'United States'],
+  description: 'Gift certificates for recording sessions, full-song production and artist assessments with producer Lucio Rubino at The Fish Tank Recordings.',
+}];
+---
+<Base
+  title="Recording Studio Gift Certificates, St. Augustine | The Fish Tank Recordings"
+  description="Give the musician in your life a recording session, a full song production or an Artist Assessment with producer Lucio Rubino. In studio or remote."
+  schema={schema}
+  crumbs={[{ name: 'Gift certificates', path: '/gift-certificates/' }]}
+>
+  <PageHero eyebrow="Gift certificates" title="A session for the songwriter <em>in your life.</em>"
+    lede="Most musicians have a song they keep meaning to record. A Fish Tank Recordings gift certificate gives them the room, the time and a producer who has played on a Platinum record, so the song finally gets made." />
+
+  <section class="section">
+    <div class="wrap grid split gift">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <ol class="steps">
+          <li><span>01</span><div><h3>Tell us who it’s for</h3><p>Fill in the short form. No payment now.</p></div></li>
+          <li><span>02</span><div><h3>Lucio follows up</h3><p>He helps you choose the right gift for what they’re working on and settles the amount with you.</p></div></li>
+          <li><span>03</span><div><h3>They get the certificate</h3><p>By email to print, or by mail. They redeem it in the studio or remotely, starting with a free Dive In visit if they like.</p></div></li>
+        </ol>
+        <h2 class="h">Good for</h2>
+        <ul class="good">
+          <li><strong>The bedroom songwriter</strong> with a phone full of voice memos</li>
+          <li><strong>The young artist</strong> ready for an honest Artist Assessment</li>
+          <li><strong>The band</strong> that wants one song done properly</li>
+          <li><strong>The player</strong> who has always wanted to hear themselves on a real record</li>
+        </ul>
+      </div>
+      <div class="card"><GiftForm client:visible /></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap"><Faq title="Gift certificate questions" items={faq} /></div>
+  </section>
+</Base>
+
+<style>
+  .gift { align-items: start; }
+  .steps { list-style: none; padding: 0; margin: 1rem 0 3rem; display: grid; gap: 1.3rem; }
+  .steps li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding-bottom: 1.3rem; border-bottom: 1px solid var(--line); }
+  .steps span { font-family: var(--font-mono); color: var(--amber); padding-top: .3rem; }
+  .steps h3 { font-size: 1.2rem; margin: 0 0 .3rem; }
+  .steps p { margin: 0; }
+  .h { font-size: 1.6rem; }
+  .good { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+  .good li { padding-left: 1.2rem; position: relative; }
+  .good li::before { content: '♪'; position: absolute; left: 0; color: var(--amber); }
+  .good strong { color: var(--cream); font-weight: 500; }
+</style>

@@ -13,7 +13,7 @@ import { marquee, business as b, cta, packagesLine, genresLine } from '../data/s
 const faq = [
   { q: 'How do I get a quote?', a: `Book a free Dive In visit, in person at the studio or on Google Meet. Rubino listens to your song, talks through your goals and lays out a plan. ${packagesLine}` },
   { q: 'Can you produce my song if I don’t live near St. Augustine?', a: 'Yes. Remote production is a big part of the work. Send a voice memo, a demo or a Suno track, talk through your goals, and Rubino builds the full production. You give feedback along the way and receive a finished master.' },
-  { q: 'What kinds of music do you produce?', a: `${genresLine} Rubino’s credits run from pop-punk and hard rock to Christian radio and jazz fusion.` },
+  { q: 'What kinds of music do you produce?', a: `${genresLine} Rubino’s credits run from pop-punk and hard rock to Christian radio, jazz fusion and pop, including work with American Idol finalist Alanis Sophia.` },
   { q: 'What does full-song production include?', a: 'Everything it takes to turn a song into a finished record: song and arrangement development, pre-production, tracking (vocals, guitars, bass, drums, keys), programming, vocal coaching, editing, mixing and mastering.' },
   { q: 'Do I need a band to record a full production?', a: 'No. Rubino is a multi-instrumentalist who covers guitars, bass, keys, drums and programming on his productions, so many artists arrive with only a voice and a guitar.' },
   { q: 'Where is the studio?', a: `The Fish Tank Recordings is at ${b.street} in St. Augustine, Florida: an elevated studio down a private drive, overlooking the marsh, about 45 minutes from Jacksonville. Sessions are by appointment.` },
@@ -117,7 +117,7 @@ const schema = [{
       <p class="eyebrow">Selected credits</p>
       <h2>A résumé that crosses <em>genres and decades.</em></h2>
       <div class="grid grid-2 proof">
-        <a class="card" href="/credits/#songs"><span class="num">STARSET · 8 SONGS</span><h3>Eight songs with <em>STARSET.</em></h3><p>Rubino worked on eight tracks by the Columbus, Ohio, hard-rock act, among them “Trials,” “Manifest,” “Echo” and “Faultline.”</p></a>
+        <a class="card" href="/credits/#songs"><span class="num">STARSET · 8 SONGS</span><h3>Eight songs with <em>STARSET.</em></h3><p>Rubino co-writes and plays bass with the Columbus, Ohio, hard-rock act. Eight of those songs are on his playlist, among them “Trials,” “Manifest,” “Echo” and “Faultline.”</p></a>
         <a class="card" href="/credits/"><span class="num">RED · 2023</span><h3>Co-writing for <em>RED.</em></h3><p>He co-wrote “Still Bleeding,” where he also plays bass, and “Your Devil Is a Ghost” for <em>Rated R</em> (2023), the eighth studio album from the Grammy-nominated Nashville band.</p></a>
         <a class="card" href="/credits/"><span class="num">GREY DAZE · 2020</span><h3>Producer, Grey Daze’s <em>“In Time.”</em></h3><p>Rubino produced “In Time” for <em>Amends</em> (2020), the Loma Vista album that rebuilt Chester Bennington’s pre-Linkin Park band around his original vocals. It reached No. 9 on Billboard’s Top Rock Albums chart.</p></a>
         <a class="card" href="/credits/"><span class="num">STORYSIDE:B · 2008</span><h3>“Be Still” and <em>the BMI list.</em></h3><p>As frontman of Gotee Records act StorySide:B, he co-wrote “Be Still,” which BMI counted among the five most-played songs on Christian radio in 2008.</p></a>
@@ -134,7 +134,7 @@ const schema = [{
       <div>
         <p class="eyebrow">Listen · On Spotify</p>
         <h2>Songs Lucio Rubino <em>had a hand in.</em></h2>
-        <p class="lede">{trackCount} songs he has written, played on or produced, from Paramore and STARSET to RED, Grey Daze, Larry Coryell and a long list of independent artists.</p>
+        <p class="lede">{trackCount} songs he has written, played on or produced, from Paramore and STARSET to RED, Grey Daze and Larry Coryell, plus independent pop and singer-songwriter artists such as Caroline Carr.</p>
         <a href="/credits/#songs" class="btn btn--ghost">Credits, song by song →</a>
       </div>
       <PlaylistEmbed height={452} />
@@ -159,6 +159,7 @@ const schema = [{
         <p class="pkg__line">{packagesLine}</p>
         <DiveInCta />
       </div>
+      <a class="giftline" href="/gift-certificates/"><span class="giftline__tag">Gift certificates</span><span>Know a songwriter with a song they keep meaning to record? <strong>Give them a session →</strong></span></a>
     </div>
   </section>
 
@@ -171,7 +172,7 @@ const schema = [{
       <div>
         <p class="eyebrow">The producer</p>
         <h2>Lucio Rubino, <em>three decades in.</em></h2>
-        <p>Rubino’s first tour came in 1998, playing bass for A Flock of Seagulls. Since then he has signed to EMI as a member of Monkey the Fish, fronted StorySide:B on Gotee Records, played on Paramore’s Platinum debut, toured Europe with RED and produced for jazz guitarist Larry Coryell. He opened The Fish Tank Recordings in {b.founded}.</p>
+        <p>Rubino started at 14 with a guitar and a four-track recorder, building his favorite songs one instrument and one track at a time. His first tour came in 1998, playing bass for A Flock of Seagulls. Since then he has signed to EMI as a member of Monkey the Fish, fronted StorySide:B on Gotee Records, played on Paramore’s Platinum debut, co-written for RED and STARSET, and produced for jazz guitarist Larry Coryell. He opened The Fish Tank Recordings in {b.founded}.</p>
         <p>He plays nearly every instrument heard on a modern record, from guitars, bass and keys to drums, and he is as fluent in programming and sound design as he is behind a console. The through line is the song, and his credits run from St. Augustine to Nashville.</p>
         <a href="/lucio-rubino/" class="btn btn--ghost">Full bio →</a>
       </div>
@@ -184,7 +185,7 @@ const schema = [{
     <div class="wrap sanct__copy">
       <p class="eyebrow">The studio</p>
       <h2>An elevated room <em>above the marsh.</em></h2>
-      <p class="lede">The Fish Tank Recordings sits at the end of a private drive in St. Augustine, Fla., with a wide view of the marsh and a large deck where artists step out between takes. It is built for long, unhurried sessions, the kind that are hard to find in a rented room on the clock.</p>
+      <p class="lede">The Fish Tank Recordings sits at the end of a winding private drive under Spanish moss in St. Augustine, Fla., raised on stilts above the marsh, with a large deck where artists step out between takes. It is built for long, unhurried sessions, the kind that are hard to find in a rented room on the clock.</p>
       <a href="/studio/" class="btn btn--ghost">Tour the studio →</a>
     </div>
   </section>
@@ -246,6 +247,10 @@ const schema = [{
   .pkg { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; justify-content: space-between; }
   .pkg__line { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--cream); max-width: 34ch; }
   .faq__cta { margin-top: 2rem; }
+  .giftline { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: center; padding: 1.1rem 1.4rem; border: 1px dashed var(--line); border-radius: 6px; color: var(--cream-dim); transition: border-color .2s, color .2s; }
+  .giftline:hover { border-color: var(--amber); color: var(--cream); }
+  .giftline strong { color: var(--amber); font-weight: 500; }
+  .giftline__tag { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); }
   .faq__cta p { color: var(--cream); }
 
   /* VU meters */

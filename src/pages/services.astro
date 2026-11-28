@@ -8,6 +8,7 @@ import { business as b, packagesLine, genresLine } from '../data/site';
 const services = [
   { id: 'production', title: 'Full-Song Production', href: '/song-production/', body: 'Songwriting, structure, arrangement, instrumentation, performance, vocal arrangement, coaching and lyrics, taken all the way to a release-ready record, in the studio or remotely, with quick turnarounds. Got a Suno demo you love? Let’s turn it into a real record you can release.' },
   { id: 'assessment', title: 'Artist Assessments', body: 'Not sure where to start? Get a professional assessment of your music and a plan for what’s next. In a 45- or 60-minute one-on-one session, Rubino reviews your songs, your voice and your direction, then gives honest feedback and a clear plan for the next steps. It is a strong first move for young and developing artists, and for the parents helping them find their way.' },
+  { id: 'gift', title: 'Gift Certificates', href: '/gift-certificates/', body: 'A session for the songwriter in your life. Give a recording session, a full-song production or an Artist Assessment, redeemable in the studio or remotely. Lucio helps you choose the right gift and the amount.' },
   { id: 'recording', title: 'Hi-Definition Multitrack Recording', body: 'Up to 96 tracks of high-resolution detail on Avid Pro Tools HD and industry-standard converters, through an SSL Origin console and a mic locker led by a FLEA U47 Next and Royer and AEA ribbons. The detail of a performance is captured as it happened.' },
   { id: 'mixing', title: 'Mixing', body: 'Balance, compression and EQ so every part has its own space and the record lands as a whole. Analog color comes from a Shadow Hills Dual Vandergraph, Elysia Nvelope, API 512b and a pair of Empirical Labs Distressors.' },
   { id: 'mastering', title: 'Mastering', body: 'The last step before release: flow, balance and loudness, set with hardware such as the A-Designs Hammer tube EQ and current software, for a master that is full, warm and clear. Artists are walked through the process.' },
@@ -43,7 +44,7 @@ const schema = [{
   </PageHero>
 
   <section class="pkgband">
-    <div class="wrap pkgband__in"><p>{packagesLine}</p><a href="#assessment">Artist Assessments →</a></div>
+    <div class="wrap pkgband__in"><p>{packagesLine}</p><span class="pkgband__links"><a href="#assessment">Artist Assessments →</a><a href="/gift-certificates/">Gift certificates →</a></span></div>
   </section>
 
   <section class="section">
@@ -85,5 +86,6 @@ const schema = [{
   .pkgband { border-block: 1px solid var(--line); background: var(--ink-2); }
   .pkgband__in { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; align-items: center; padding-block: 1.4rem; }
   .pkgband p { margin: 0; color: var(--cream); font-family: var(--font-display); font-size: 1.2rem; }
+  .pkgband__links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
   .pkgband a { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
 </style>
