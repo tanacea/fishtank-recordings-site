@@ -32,6 +32,6 @@ export default defineConfig({
   base: isDev ? '/fishtank-recordings-site' : undefined,
   trailingSlash: 'always',
   build: { format: 'directory' },
-  integrations: [vue(), ...(isDev ? [] : [sitemap()])],
+  integrations: [vue(), ...(isDev ? [] : [sitemap({ filter: (page) => !page.includes('/one-sheet/') })])],
   redirects: isDev ? {} : redirects,
 });

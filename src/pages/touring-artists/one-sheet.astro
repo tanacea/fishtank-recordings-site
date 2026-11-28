@@ -1,0 +1,81 @@
+---
+// Printable one-sheet for tour managers. Standalone page (no site chrome), noindex.
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Touring artist one-sheet | The Fish Tank Recordings</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg">
+<style is:inline>
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Georgia, 'Times New Roman', serif; color: #efe6d8; background: #0e0c0a; }
+.page { width: 8.5in; height: 11in; padding: .65in .7in; display: flex; flex-direction: column; }
+.mono { font-family: 'Courier New', monospace; letter-spacing: .18em; text-transform: uppercase; font-size: 8.5pt; color: #f0a43a; }
+h1 { font-size: 34pt; line-height: 1.05; margin: .15in 0 .12in; font-weight: 400; }
+h1 em { color: #f0a43a; }
+.lede { font-family: Helvetica, Arial, sans-serif; font-size: 11.5pt; line-height: 1.5; color: #cfc4b3; margin: 0 0 .25in; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #3a3129; margin-bottom: .3in; }
+.facts div { padding: .16in; border-right: 1px solid #3a3129; }
+.facts div:last-child { border-right: 0; }
+.facts b { display: block; font-size: 17pt; font-weight: 400; color: #f0a43a; }
+.facts span { font-family: Helvetica, Arial, sans-serif; font-size: 9pt; color: #cfc4b3; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: .3in; font-family: Helvetica, Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #d9cfbf; }
+.cols h2 { font-family: Georgia, serif; font-size: 14pt; font-weight: 400; color: #efe6d8; margin: 0 0 .06in; }
+.cols ul { margin: 0 0 .18in; padding-left: .18in; }
+.cols p { margin: 0 0 .18in; }
+.foot { margin-top: auto; border-top: 1px solid #3a3129; padding-top: .2in; display: flex; justify-content: space-between; align-items: flex-end; font-family: Helvetica, Arial, sans-serif; font-size: 10pt; color: #cfc4b3; }
+.foot b { color: #efe6d8; font-size: 12pt; }
+.name { font-family: Georgia, serif; font-style: italic; font-size: 15pt; color: #efe6d8; }
+
+.bar { position: fixed; top: 12px; right: 12px; display: flex; gap: 8px; font-family: Helvetica, Arial, sans-serif; }
+.bar a, .bar button { background: #f0a43a; color: #0e0c0a; border: 0; border-radius: 4px; padding: 10px 14px; font-size: 13px; cursor: pointer; text-decoration: none; }
+.bar a { background: #2a241e; color: #efe6d8; }
+@media screen { body { padding: 24px 0; } .page { margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,.5); } }
+@media screen and (max-width: 860px) { .page { width: 100%; height: auto; } .facts, .cols { grid-template-columns: 1fr 1fr !important; } }
+@media print { .bar { display: none; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style></head><body>
+<div class="bar"><a href="/touring-artists/">← Back</a><button type="button" onclick="window.print()">Save as PDF</button></div>
+<div class="page">
+<div class="name">The Fish Tank Recordings</div>
+<p class="mono" style="margin-top:.25in">For touring artists · St. Augustine, Florida</p>
+<h1>Playing the Amp?<br><em>Spend the off day here.</em></h1>
+<p class="lede">A private rehearsal and recording studio about 15 minutes from the St. Augustine Amphitheatre, at the end of a private drive on the marsh. Rehearse, unwind and, if the mood strikes, record with producer and multi-instrumentalist Lucio Rubino.</p>
+<div class="facts">
+  <div><b>15 min</b><span>to the St. Augustine Amphitheatre (about 5 miles)</span></div>
+  <div><b>Bus parking</b><span>room for buses, vans and trailers</span></div>
+  <div><b>Full band</b><span>live-room rehearsal, personal monitor mixes</span></div>
+  <div><b>Private</b><span>booked directly with Lucio; NDA on request</span></div>
+</div>
+<div class="cols">
+  <div>
+    <h2>Rehearse</h2>
+    <p>Run the set, work up a new song or a guest spot in a live room built for a full band, with personal monitor mixes.</p>
+    <h2>Relax</h2>
+    <p>A large deck over the St. Augustine marsh, coffee on and nobody around. Away from the venue, the lobby and the bus.</p>
+    <h2>Record</h2>
+    <p>Cut the song you wrote on the road. SSL Origin console, Pro Tools HD, FLEA U47 Next, Royer and AEA ribbons, Shadow Hills, API and Empirical Labs outboard.</p>
+  </div>
+  <div>
+    <h2>Lucio Rubino</h2>
+    <ul>
+      <li>Bass on Paramore’s <i>All We Know Is Falling</i> (RIAA Platinum, 2025)</li>
+      <li>Co-writer and bass, RED, <i>Rated R</i> (2023)</li>
+      <li>Producer, Grey Daze, “In Time,” <i>Amends</i> (2020)</li>
+      <li>Producer for jazz guitarist Larry Coryell</li>
+      <li>Co-writer, “Be Still,” a BMI top-5 Christian radio song of 2008</li>
+    </ul>
+    <h2>On request</h2>
+    <ul>
+      <li>Session video and photos for social media</li>
+      <li>Help finding a place to stay, from historic inns to beach houses</li>
+      <li>Lucio on any instrument the song needs</li>
+    </ul>
+  </div>
+</div>
+<div class="foot">
+  <div><b>Check a date with Lucio</b><br>(904) 377-7611 · lrubino@me.com<br>thefishtankrecordings.com/touring-artists</div>
+  <div style="text-align:right">Rates quoted directly<br>to tour and artist managers</div>
+</div>
+</div>
+</body></html>
