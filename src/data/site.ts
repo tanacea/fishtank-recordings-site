@@ -6,7 +6,7 @@
 
 export const business = {
   name: 'The Fish Tank Recordings',
-  shortName: 'The Fish Tank',
+  shortName: 'The Fish Tank Recordings',
   owner: 'Lucio "Lu" Rubino',
   founded: 2002,
   street: '24 Althea Street',
