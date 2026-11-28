@@ -23,6 +23,23 @@ import { business as b } from '../data/site';
     </div>
   </section>
 
+  <section class="section touring" id="touring-artists">
+    <div class="wrap grid split">
+      <div>
+        <p class="eyebrow">For touring artists</p>
+        <h2>Playing St. Augustine? <em>Spend the off day here.</em></h2>
+        <p class="lede">The St. Augustine Amphitheatre, named Billboard’s Top East Coast Amphitheater, has made this small coastal city a regular stop for headliners. The Fish Tank Recordings gives the artists who play it a private room in the same town: somewhere to rehearse, unwind and, if the mood strikes, record.</p>
+        <ul class="touring__list">
+          <li><strong>Rehearse</strong><span>Run the set or work up a new song in a live room built for a full band, with personal monitor mixes.</span></li>
+          <li><strong>Relax</strong><span>A marsh-view deck at the end of a private drive, out of sight and away from venue traffic.</span></li>
+          <li><strong>Record</strong><span>Cut the song you wrote on the bus while it’s fresh, with a producer who plays nearly every instrument on the record.</span></li>
+        </ul>
+        <p class="touring__contact">Managers and tour staff: call or text Lucio at <a href={`tel:${b.phoneE164}`}>{b.phone}</a> or email <a href={`mailto:${b.email}?subject=Touring%20artist%20session`}>{b.email}</a>. Booked directly with Lucio.</p>
+      </div>
+      <img class="img" src="/images/live-room.webp" alt="The live room at The Fish Tank Recordings, set up for a band" width="800" height="1000" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
   <section class="section section--alt">
     <div class="wrap grid split">
       <div class="prose">
@@ -51,6 +68,11 @@ import { business as b } from '../data/site';
 </Base>
 
 <style>
+  .touring .grid { align-items: center; }
+  .touring__list { list-style: none; padding: 0; margin: 2rem 0; display: grid; gap: 1.1rem; }
+  .touring__list li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+  .touring__list strong { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--amber); font-weight: 400; padding-top: .25rem; }
+  .touring__contact { font-size: .95rem; }
   .gallery { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
   .g1 { grid-column: 1 / -1; aspect-ratio: 21/9; }
   .g2, .g3, .g4 { aspect-ratio: 4/5; }
